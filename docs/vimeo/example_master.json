@@ -1,0 +1,1998 @@
+{
+  "clip_id": 166807261,
+  "base_url": "../",
+  "video": [
+    {
+      "id": 532045679,
+      "base_url": "532045679/chop/",
+      "format": "mp42",
+      "mime_type": "video/mp4",
+      "codecs": "avc1.4D4016",
+      "bitrate": 692000,
+      "avg_bitrate": 494000,
+      "duration": 375.16,
+      "framerate": 25,
+      "width": 640,
+      "height": 360,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAADEW1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAITdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAKAAAABaAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAABAAAAQAAAAABi21kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAMgAAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATZtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD2c3RibAAAAKpzdHNkAAAAAAAAAAEAAACaYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAKAAWgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADRhdmNDAU1AFv/hAB1nTUAW7KBQF/y4C1BgUFQAAAMABAAAAwDIPFi2WAEABGjr7LIAAAAQcGFzcAAAAAEAAAABAAAAEHN0dHMAAAAAAAAAAAAAABBzdHNjAAAAAAAAAAAAAAAUc3RzegAAAAAAAAAAAAAAAAAAABBzdGNvAAAAAAAAAAAAAAAobXZleAAAACB0cmV4AAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAYnVkdGEAAABabWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAbWRpcmFwcGwAAAAAAAAAAAAAAAAtaWxzdAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1Ny43Mi4xMDA=",
+      "segments": [
+        {
+          "start": 0,
+          "end": 6,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 6,
+          "end": 12,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12,
+          "end": 18,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 30,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 30,
+          "end": 36,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36,
+          "end": 42,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 54,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 54,
+          "end": 60,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60,
+          "end": 66,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 78,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 78,
+          "end": 84,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84,
+          "end": 90,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 102,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 102,
+          "end": 108,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108,
+          "end": 114,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 126,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 126,
+          "end": 132,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132,
+          "end": 138,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 150,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 150,
+          "end": 156,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156,
+          "end": 162,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 174,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 174,
+          "end": 180,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180,
+          "end": 186,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 198,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 198,
+          "end": 204,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204,
+          "end": 210,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 222,
+          "end": 228,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228,
+          "end": 234,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 246,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 246,
+          "end": 252,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252,
+          "end": 258,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 270,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 270,
+          "end": 276,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276,
+          "end": 282,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 294,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 294,
+          "end": 300,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300,
+          "end": 306,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 318,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 318,
+          "end": 324,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324,
+          "end": 330,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 342,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 342,
+          "end": 348,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348,
+          "end": 354,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 366,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 366,
+          "end": 372,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372,
+          "end": 375.16,
+          "url": "segment-63.m4s"
+        }
+      ]
+    },
+    {
+      "id": 532045714,
+      "base_url": "532045714/chop/",
+      "format": "mp42",
+      "mime_type": "video/mp4",
+      "codecs": "avc1.64001F",
+      "bitrate": 1940000,
+      "avg_bitrate": 1486000,
+      "duration": 375.16,
+      "framerate": 25,
+      "width": 960,
+      "height": 540,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAADF21vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIZdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAPAAAACHAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAABAAAAQAAAAABkW1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAMgAAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD8c3RibAAAALBzdHNkAAAAAAAAAAEAAACgYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAPAAhwASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADphdmNDAWQAH//hAB5nZAAfrNlA8BF+8BagwKCoAAADAAgAAAMBkHjBjLABAAVo6+yyLP34+AAAAAAQcGFzcAAAAAEAAAABAAAAEHN0dHMAAAAAAAAAAAAAABBzdHNjAAAAAAAAAAAAAAAUc3RzegAAAAAAAAAAAAAAAAAAABBzdGNvAAAAAAAAAAAAAAAobXZleAAAACB0cmV4AAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAYnVkdGEAAABabWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAbWRpcmFwcGwAAAAAAAAAAAAAAAAtaWxzdAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1Ny43Mi4xMDA=",
+      "segments": [
+        {
+          "start": 0,
+          "end": 6,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 6,
+          "end": 12,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12,
+          "end": 18,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 30,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 30,
+          "end": 36,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36,
+          "end": 42,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 54,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 54,
+          "end": 60,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60,
+          "end": 66,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 78,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 78,
+          "end": 84,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84,
+          "end": 90,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 102,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 102,
+          "end": 108,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108,
+          "end": 114,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 126,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 126,
+          "end": 132,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132,
+          "end": 138,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 150,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 150,
+          "end": 156,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156,
+          "end": 162,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 174,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 174,
+          "end": 180,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180,
+          "end": 186,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 198,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 198,
+          "end": 204,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204,
+          "end": 210,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 222,
+          "end": 228,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228,
+          "end": 234,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 246,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 246,
+          "end": 252,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252,
+          "end": 258,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 270,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 270,
+          "end": 276,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276,
+          "end": 282,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 294,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 294,
+          "end": 300,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300,
+          "end": 306,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 318,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 318,
+          "end": 324,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324,
+          "end": 330,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 342,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 342,
+          "end": 348,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348,
+          "end": 354,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 366,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 366,
+          "end": 372,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372,
+          "end": 375.16,
+          "url": "segment-63.m4s"
+        }
+      ]
+    },
+    {
+      "id": 532045695,
+      "base_url": "532045695/chop/",
+      "format": "mp42",
+      "mime_type": "video/mp4",
+      "codecs": "avc1.640020",
+      "bitrate": 3602000,
+      "avg_bitrate": 2470000,
+      "duration": 375.16,
+      "framerate": 25,
+      "width": 1280,
+      "height": 720,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAADFW1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIXdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAUAAAAC0AAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAABAAAAQAAAAABj21kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAMgAAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATptaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD6c3RibAAAAK5zdHNkAAAAAAAAAAEAAACeYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAUAAtAASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADhhdmNDAWQAIP/hABxnZAAgrNmAUAW7AWoCAgKAAAADAIAAABkHjBjNAQAFaOl7LIv9+PgAAAAAEHBhc3AAAAABAAAAAQAAABBzdHRzAAAAAAAAAAAAAAAQc3RzYwAAAAAAAAAAAAAAFHN0c3oAAAAAAAAAAAAAAAAAAAAQc3RjbwAAAAAAAAAAAAAAKG12ZXgAAAAgdHJleAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTcuNzIuMTAw",
+      "segments": [
+        {
+          "start": 0,
+          "end": 6,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 6,
+          "end": 12,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12,
+          "end": 18,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 30,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 30,
+          "end": 36,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36,
+          "end": 42,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 54,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 54,
+          "end": 60,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60,
+          "end": 66,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 78,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 78,
+          "end": 84,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84,
+          "end": 90,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 102,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 102,
+          "end": 108,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108,
+          "end": 114,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 126,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 126,
+          "end": 132,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132,
+          "end": 138,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 150,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 150,
+          "end": 156,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156,
+          "end": 162,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 174,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 174,
+          "end": 180,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180,
+          "end": 186,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 198,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 198,
+          "end": 204,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204,
+          "end": 210,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 222,
+          "end": 228,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228,
+          "end": 234,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 246,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 246,
+          "end": 252,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252,
+          "end": 258,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 270,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 270,
+          "end": 276,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276,
+          "end": 282,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 294,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 294,
+          "end": 300,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300,
+          "end": 306,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 318,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 318,
+          "end": 324,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324,
+          "end": 330,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 342,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 342,
+          "end": 348,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348,
+          "end": 354,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 366,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 366,
+          "end": 372,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372,
+          "end": 375.16,
+          "url": "segment-63.m4s"
+        }
+      ]
+    },
+    {
+      "id": 532045686,
+      "base_url": "532045686/chop/",
+      "format": "mp42",
+      "mime_type": "video/mp4",
+      "codecs": "avc1.640028",
+      "bitrate": 6029000,
+      "avg_bitrate": 4462000,
+      "duration": 375.16,
+      "framerate": 25,
+      "width": 1920,
+      "height": 1080,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAADF21vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIZdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAeAAAAEOAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAABAAAAQAAAAABkW1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAMgAAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD8c3RibAAAALBzdHNkAAAAAAAAAAEAAACgYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAeABDgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADphdmNDAWQAKP/hAB5nZAAorNlAeAIn5cBagICAoAAAAwAgAAAGQeMGMsABAAVo6Tssi/34+AAAAAAQcGFzcAAAAAEAAAABAAAAEHN0dHMAAAAAAAAAAAAAABBzdHNjAAAAAAAAAAAAAAAUc3RzegAAAAAAAAAAAAAAAAAAABBzdGNvAAAAAAAAAAAAAAAobXZleAAAACB0cmV4AAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAYnVkdGEAAABabWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAbWRpcmFwcGwAAAAAAAAAAAAAAAAtaWxzdAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1Ny43Mi4xMDA=",
+      "segments": [
+        {
+          "start": 0,
+          "end": 6,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 6,
+          "end": 12,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12,
+          "end": 18,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 30,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 30,
+          "end": 36,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36,
+          "end": 42,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 54,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 54,
+          "end": 60,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60,
+          "end": 66,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 78,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 78,
+          "end": 84,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84,
+          "end": 90,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 102,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 102,
+          "end": 108,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108,
+          "end": 114,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 126,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 126,
+          "end": 132,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132,
+          "end": 138,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 150,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 150,
+          "end": 156,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156,
+          "end": 162,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 174,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 174,
+          "end": 180,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180,
+          "end": 186,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 198,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 198,
+          "end": 204,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204,
+          "end": 210,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 222,
+          "end": 228,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228,
+          "end": 234,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 246,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 246,
+          "end": 252,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252,
+          "end": 258,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 270,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 270,
+          "end": 276,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276,
+          "end": 282,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 294,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 294,
+          "end": 300,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300,
+          "end": 306,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 318,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 318,
+          "end": 324,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324,
+          "end": 330,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 342,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 342,
+          "end": 348,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348,
+          "end": 354,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 366,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 366,
+          "end": 372,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372,
+          "end": 375.16,
+          "url": "segment-63.m4s"
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "id": 532045679,
+      "base_url": "../audio/532045679/chop/",
+      "format": "mp42",
+      "mime_type": "audio/mp4",
+      "codecs": "mp4a.40.2",
+      "bitrate": 128000,
+      "avg_bitrate": 128000,
+      "duration": 375.33866666666665,
+      "channels": 2,
+      "sample_rate": 48000,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAACym1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAHMdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAAAAAAAQAAAAABRG1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAu4AAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAABzb3VuAAAAAAAAAAAAAAAAU291bmRIYW5kbGVyAAAAAO9taW5mAAAAEHNtaGQAAAAAAAAAAAAAACRkaW5mAAAAHGRyZWYAAAAAAAAAAQAAAAx1cmwgAAAAAQAAALNzdGJsAAAAZ3N0c2QAAAAAAAAAAQAAAFdtcDRhAAAAAAAAAAEAAAAAAAAAAAACABAAAAAAu4AAAAAAADNlc2RzAAAAAAOAgIAiAAEABICAgBRAFQAAAAAB9AAAAAAABYCAgAIRkAaAgIABAgAAABBzdHRzAAAAAAAAAAAAAAAQc3RzYwAAAAAAAAAAAAAAFHN0c3oAAAAAAAAAAAAAAAAAAAAQc3RjbwAAAAAAAAAAAAAAKG12ZXgAAAAgdHJleAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTcuNzIuMTAw",
+      "segments": [
+        {
+          "start": 0,
+          "end": 5.994666666666666,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 5.994666666666666,
+          "end": 12.010666666666667,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12.010666666666667,
+          "end": 18.005333333333333,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18.005333333333333,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 29.994666666666667,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 29.994666666666667,
+          "end": 36.010666666666665,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36.010666666666665,
+          "end": 42.00533333333333,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42.00533333333333,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 53.99466666666667,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 53.99466666666667,
+          "end": 60.010666666666665,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60.010666666666665,
+          "end": 66.00533333333334,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66.00533333333334,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 77.99466666666666,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 77.99466666666666,
+          "end": 84.01066666666667,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84.01066666666667,
+          "end": 90.00533333333334,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90.00533333333334,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 101.99466666666666,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 101.99466666666666,
+          "end": 108.01066666666667,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108.01066666666667,
+          "end": 114.00533333333334,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114.00533333333334,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 125.99466666666666,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 125.99466666666666,
+          "end": 132.01066666666668,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132.01066666666668,
+          "end": 138.00533333333334,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138.00533333333334,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 149.99466666666666,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 149.99466666666666,
+          "end": 156.01066666666668,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156.01066666666668,
+          "end": 162.00533333333334,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162.00533333333334,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 173.99466666666666,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 173.99466666666666,
+          "end": 180.01066666666668,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180.01066666666668,
+          "end": 186.00533333333334,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186.00533333333334,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 197.99466666666666,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 197.99466666666666,
+          "end": 204.01066666666668,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204.01066666666668,
+          "end": 210.00533333333334,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210.00533333333334,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 221.99466666666666,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 221.99466666666666,
+          "end": 228.01066666666668,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228.01066666666668,
+          "end": 234.00533333333334,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234.00533333333334,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 245.99466666666666,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 245.99466666666666,
+          "end": 252.01066666666668,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252.01066666666668,
+          "end": 258.00533333333334,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258.00533333333334,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 269.99466666666666,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 269.99466666666666,
+          "end": 276.0106666666667,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276.0106666666667,
+          "end": 282.00533333333334,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282.00533333333334,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 293.99466666666666,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 293.99466666666666,
+          "end": 300.0106666666667,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300.0106666666667,
+          "end": 306.00533333333334,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306.00533333333334,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 317.99466666666666,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 317.99466666666666,
+          "end": 324.0106666666667,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324.0106666666667,
+          "end": 330.00533333333334,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330.00533333333334,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 341.99466666666666,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 341.99466666666666,
+          "end": 348.0106666666667,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348.0106666666667,
+          "end": 354.00533333333334,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354.00533333333334,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 365.99466666666666,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 365.99466666666666,
+          "end": 372.0106666666667,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372.0106666666667,
+          "end": 375.33866666666665,
+          "url": "segment-63.m4s"
+        }
+      ]
+    },
+    {
+      "id": 532045714,
+      "base_url": "../audio/532045714/chop/",
+      "format": "mp42",
+      "mime_type": "audio/mp4",
+      "codecs": "mp4a.40.2",
+      "bitrate": 256000,
+      "avg_bitrate": 256000,
+      "duration": 375.33866666666665,
+      "channels": 2,
+      "sample_rate": 48000,
+      "max_segment_duration": 6,
+      "init_segment": "AAAAGGZ0eXBpc281AAACAGlzbzZtcDQxAAACym1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAHMdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAAAAAAAAAAAQAAAAABRG1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAu4AAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAABzb3VuAAAAAAAAAAAAAAAAU291bmRIYW5kbGVyAAAAAO9taW5mAAAAEHNtaGQAAAAAAAAAAAAAACRkaW5mAAAAHGRyZWYAAAAAAAAAAQAAAAx1cmwgAAAAAQAAALNzdGJsAAAAZ3N0c2QAAAAAAAAAAQAAAFdtcDRhAAAAAAAAAAEAAAAAAAAAAAACABAAAAAAu4AAAAAAADNlc2RzAAAAAAOAgIAiAAEABICAgBRAFQAAAAAD6AAAAAAABYCAgAIRkAaAgIABAgAAABBzdHRzAAAAAAAAAAAAAAAQc3RzYwAAAAAAAAAAAAAAFHN0c3oAAAAAAAAAAAAAAAAAAAAQc3RjbwAAAAAAAAAAAAAAKG12ZXgAAAAgdHJleAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTcuNzIuMTAw",
+      "segments": [
+        {
+          "start": 0,
+          "end": 5.994666666666666,
+          "url": "segment-1.m4s"
+        },
+        {
+          "start": 5.994666666666666,
+          "end": 12.010666666666667,
+          "url": "segment-2.m4s"
+        },
+        {
+          "start": 12.010666666666667,
+          "end": 18.005333333333333,
+          "url": "segment-3.m4s"
+        },
+        {
+          "start": 18.005333333333333,
+          "end": 24,
+          "url": "segment-4.m4s"
+        },
+        {
+          "start": 24,
+          "end": 29.994666666666667,
+          "url": "segment-5.m4s"
+        },
+        {
+          "start": 29.994666666666667,
+          "end": 36.010666666666665,
+          "url": "segment-6.m4s"
+        },
+        {
+          "start": 36.010666666666665,
+          "end": 42.00533333333333,
+          "url": "segment-7.m4s"
+        },
+        {
+          "start": 42.00533333333333,
+          "end": 48,
+          "url": "segment-8.m4s"
+        },
+        {
+          "start": 48,
+          "end": 53.99466666666667,
+          "url": "segment-9.m4s"
+        },
+        {
+          "start": 53.99466666666667,
+          "end": 60.010666666666665,
+          "url": "segment-10.m4s"
+        },
+        {
+          "start": 60.010666666666665,
+          "end": 66.00533333333334,
+          "url": "segment-11.m4s"
+        },
+        {
+          "start": 66.00533333333334,
+          "end": 72,
+          "url": "segment-12.m4s"
+        },
+        {
+          "start": 72,
+          "end": 77.99466666666666,
+          "url": "segment-13.m4s"
+        },
+        {
+          "start": 77.99466666666666,
+          "end": 84.01066666666667,
+          "url": "segment-14.m4s"
+        },
+        {
+          "start": 84.01066666666667,
+          "end": 90.00533333333334,
+          "url": "segment-15.m4s"
+        },
+        {
+          "start": 90.00533333333334,
+          "end": 96,
+          "url": "segment-16.m4s"
+        },
+        {
+          "start": 96,
+          "end": 101.99466666666666,
+          "url": "segment-17.m4s"
+        },
+        {
+          "start": 101.99466666666666,
+          "end": 108.01066666666667,
+          "url": "segment-18.m4s"
+        },
+        {
+          "start": 108.01066666666667,
+          "end": 114.00533333333334,
+          "url": "segment-19.m4s"
+        },
+        {
+          "start": 114.00533333333334,
+          "end": 120,
+          "url": "segment-20.m4s"
+        },
+        {
+          "start": 120,
+          "end": 125.99466666666666,
+          "url": "segment-21.m4s"
+        },
+        {
+          "start": 125.99466666666666,
+          "end": 132.01066666666668,
+          "url": "segment-22.m4s"
+        },
+        {
+          "start": 132.01066666666668,
+          "end": 138.00533333333334,
+          "url": "segment-23.m4s"
+        },
+        {
+          "start": 138.00533333333334,
+          "end": 144,
+          "url": "segment-24.m4s"
+        },
+        {
+          "start": 144,
+          "end": 149.99466666666666,
+          "url": "segment-25.m4s"
+        },
+        {
+          "start": 149.99466666666666,
+          "end": 156.01066666666668,
+          "url": "segment-26.m4s"
+        },
+        {
+          "start": 156.01066666666668,
+          "end": 162.00533333333334,
+          "url": "segment-27.m4s"
+        },
+        {
+          "start": 162.00533333333334,
+          "end": 168,
+          "url": "segment-28.m4s"
+        },
+        {
+          "start": 168,
+          "end": 173.99466666666666,
+          "url": "segment-29.m4s"
+        },
+        {
+          "start": 173.99466666666666,
+          "end": 180.01066666666668,
+          "url": "segment-30.m4s"
+        },
+        {
+          "start": 180.01066666666668,
+          "end": 186.00533333333334,
+          "url": "segment-31.m4s"
+        },
+        {
+          "start": 186.00533333333334,
+          "end": 192,
+          "url": "segment-32.m4s"
+        },
+        {
+          "start": 192,
+          "end": 197.99466666666666,
+          "url": "segment-33.m4s"
+        },
+        {
+          "start": 197.99466666666666,
+          "end": 204.01066666666668,
+          "url": "segment-34.m4s"
+        },
+        {
+          "start": 204.01066666666668,
+          "end": 210.00533333333334,
+          "url": "segment-35.m4s"
+        },
+        {
+          "start": 210.00533333333334,
+          "end": 216,
+          "url": "segment-36.m4s"
+        },
+        {
+          "start": 216,
+          "end": 221.99466666666666,
+          "url": "segment-37.m4s"
+        },
+        {
+          "start": 221.99466666666666,
+          "end": 228.01066666666668,
+          "url": "segment-38.m4s"
+        },
+        {
+          "start": 228.01066666666668,
+          "end": 234.00533333333334,
+          "url": "segment-39.m4s"
+        },
+        {
+          "start": 234.00533333333334,
+          "end": 240,
+          "url": "segment-40.m4s"
+        },
+        {
+          "start": 240,
+          "end": 245.99466666666666,
+          "url": "segment-41.m4s"
+        },
+        {
+          "start": 245.99466666666666,
+          "end": 252.01066666666668,
+          "url": "segment-42.m4s"
+        },
+        {
+          "start": 252.01066666666668,
+          "end": 258.00533333333334,
+          "url": "segment-43.m4s"
+        },
+        {
+          "start": 258.00533333333334,
+          "end": 264,
+          "url": "segment-44.m4s"
+        },
+        {
+          "start": 264,
+          "end": 269.99466666666666,
+          "url": "segment-45.m4s"
+        },
+        {
+          "start": 269.99466666666666,
+          "end": 276.0106666666667,
+          "url": "segment-46.m4s"
+        },
+        {
+          "start": 276.0106666666667,
+          "end": 282.00533333333334,
+          "url": "segment-47.m4s"
+        },
+        {
+          "start": 282.00533333333334,
+          "end": 288,
+          "url": "segment-48.m4s"
+        },
+        {
+          "start": 288,
+          "end": 293.99466666666666,
+          "url": "segment-49.m4s"
+        },
+        {
+          "start": 293.99466666666666,
+          "end": 300.0106666666667,
+          "url": "segment-50.m4s"
+        },
+        {
+          "start": 300.0106666666667,
+          "end": 306.00533333333334,
+          "url": "segment-51.m4s"
+        },
+        {
+          "start": 306.00533333333334,
+          "end": 312,
+          "url": "segment-52.m4s"
+        },
+        {
+          "start": 312,
+          "end": 317.99466666666666,
+          "url": "segment-53.m4s"
+        },
+        {
+          "start": 317.99466666666666,
+          "end": 324.0106666666667,
+          "url": "segment-54.m4s"
+        },
+        {
+          "start": 324.0106666666667,
+          "end": 330.00533333333334,
+          "url": "segment-55.m4s"
+        },
+        {
+          "start": 330.00533333333334,
+          "end": 336,
+          "url": "segment-56.m4s"
+        },
+        {
+          "start": 336,
+          "end": 341.99466666666666,
+          "url": "segment-57.m4s"
+        },
+        {
+          "start": 341.99466666666666,
+          "end": 348.0106666666667,
+          "url": "segment-58.m4s"
+        },
+        {
+          "start": 348.0106666666667,
+          "end": 354.00533333333334,
+          "url": "segment-59.m4s"
+        },
+        {
+          "start": 354.00533333333334,
+          "end": 360,
+          "url": "segment-60.m4s"
+        },
+        {
+          "start": 360,
+          "end": 365.99466666666666,
+          "url": "segment-61.m4s"
+        },
+        {
+          "start": 365.99466666666666,
+          "end": 372.0106666666667,
+          "url": "segment-62.m4s"
+        },
+        {
+          "start": 372.0106666666667,
+          "end": 375.33866666666665,
+          "url": "segment-63.m4s"
+        }
+      ]
+    }
+  ]
+}
