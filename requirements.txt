@@ -1,2 +1,3 @@
+matplotlib
 git+git://github.com/AutomatedTester/browsermob-proxy-py.git#egg=browsermob-proxy
 requests
