@@ -7,6 +7,8 @@ from json import dumps
 from config import PROXY_EXECUTABLE, FIREFOX_EXECUTABLE, SELENIUM_LOGS, LOG_DIR, HAR_DIR
 
 import logging
+from datetime import datetime
+
 logger = logging.getLogger(__name__)
 import os
 
@@ -43,7 +45,7 @@ class Experiment:
         profile.set_proxy(self.proxy.selenium_proxy())
         self.driver = webdriver.Firefox(firefox_profile=profile, executable_path=FIREFOX_EXECUTABLE, log_path=SELENIUM_LOGS)
 
-    def run(self, har_identifier='test', capture_content=False, cleaning_func=None):
+    def run(self, har_identifier='test', capture_content=False, capture_binary_content=False, cleaning_func=None):
         """This is a blocking function! - if you want to run multiple experiments at the same time,
         implement non-blocking run.
         
@@ -54,7 +56,8 @@ class Experiment:
 
         # for options see https://github.com/lightbody/browsermob-proxy/blob/master/README.md
         self.proxy.new_har(har_identifier, options={'captureHeaders': True,
-                                                    'captureContent': capture_content})
+                                                    'captureContent': capture_content,
+                                                    'captureBinaryContent': capture_binary_content})
         self.driver.get(self.video_url)
 
         # blocks until video is stopped/paused
@@ -78,10 +81,8 @@ class Experiment:
 
         with open(os.path.join(self.har_folder, har_identifier+str(timestamp_now)+'.har'), 'w+') as fo:
             fo.write(dumps(har))
+            logger.info('Saved har file to: %s' % os.path.join(self.har_folder, har_identifier+str(timestamp_now)+'.har'))
 
-        with open(os.path.join(self.har_folder, har_identifier+'.har'), 'w+') as fo:
-            fo.write(dumps(har))
-            logger.info('Saved har file to: %s' % os.path.join(self.har_folder, har_identifier+'.har'))
         return har
 
     def run_generic(self, har_identifier='test', cleaning_func=None):

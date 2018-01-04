@@ -1,20 +1,15 @@
-from json import load
+from json import load, dump, loads
 from pprint import pprint
 
-data = load(open('../har_files/vimeo_3min.har'))
+data = load(open('../har_files/vimeo_parallel1515014752.har'))
 
 entries = data['log']['entries']
 
-mimetypes = set()
-jsonentries = list()
 for entry in entries:
-    mimetypes.add(entry['response']['content']['mimeType'])
-    if 'json' in entry['response']['content']['mimeType']:
-        jsonentries.append(entry)
+    if 'json' in entry['response']['content']['mimeType'] and 'master.json' in entry['request']['url']:
+        master = loads(entry['response']['content']['text'])
 
-for i, entry in enumerate(jsonentries):
-    content = entry['response']['content']['text']
-    with open(str(i)+'.json', 'w') as fo:
-        fo.write(content)
+with open('master.json', 'w') as fo:
+    dump(master, fo)
 
 # TODO how are the different chopped segments received? is it posssible to just call <id>/chop/segment-x.m4s? look at example_master.json and at the different requests

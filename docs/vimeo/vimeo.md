@@ -39,3 +39,8 @@ a request is made to one of the cdn-urls contained in the config.json to get the
 
 Contained in the master.json file are details about the different segments. In particular the url for the desired resolution is given.
 
+The urls to get the segments start with the same part as the url to get the master.json file and appended to it is a parameter contained
+in the master.json file called base url (example: "base_url":"902358530/chop/") this is specific to a resolution,
+appended to it is an affix specific to the segment (exampl"url":"segment-14.m4s").
+Example for a built url:
+https://56skyfiregce-vimeo.akamaized.net/longidhere/248996255/sep/video/902358530/chop/segment-1.m4s
