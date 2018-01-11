@@ -1,12 +1,12 @@
 from copy import deepcopy
 
-import logging
-logger = logging.getLogger()
-
 import datetime
 import re
 
 from json import loads
+
+import logging
+logger = logging.getLogger()
 
 
 def youtube_cleaner(json_dump):
@@ -64,14 +64,15 @@ class HarParser:
 
 def har_timestamp_to_datetime(timestamp):
     """takes 2017-12-06T16:29:37.284+01:00 and converts it to a proper python datetime object, messing with microseconds
-    and timezones is somewhat messy, so we use regex..."""
+    and timezones is somewhat messy, so we use regex...
+    ~~ found better method using dateutil"""
     result = re.findall(r'\d+', timestamp)[:-2]
     year, month, day, hour, minutes, seconds, milliseconds = map(int, result)
     dt = datetime.datetime(year, month, day, hour, minutes, seconds, milliseconds*1000)
     return dt
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     from json import load
     from logging import basicConfig
     basicConfig(level=logging.INFO)

@@ -1,5 +1,6 @@
-from snippets.vimeo import VimeoHar
 from json import load
+
+from vimeo import VimeoHar
 
 data = load(open('../har_files/vimeo_parallel.har'))
 VimeoHar(data)

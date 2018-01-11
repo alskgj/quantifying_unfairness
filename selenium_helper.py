@@ -5,11 +5,8 @@ from youtube_helper import check_video_status, VIDEO_ENDED, VIDEO_PAUSED, VIDEO_
 from json import dumps
 
 from config import PROXY_EXECUTABLE, FIREFOX_EXECUTABLE, SELENIUM_LOGS, LOG_DIR, HAR_DIR
-
-import logging
 from datetime import datetime
 
-logger = logging.getLogger(__name__)
 import os
 
 import atexit

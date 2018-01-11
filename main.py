@@ -12,7 +12,7 @@ ramsey_test = 'https://www.youtube.com/watch?v=wHRXUeVsAQQ'
 captures = []
 for quality in range(50, 300, 50):
     e = Experiment(ramsey_test, download_kbps=quality, upload_kbps=quality)
-    capture = e.run_youtube(cleaning_func=youtube_cleaner, har_identifier="fullscreen_test" + str(quality), youtube_fullscreen=True)
+    capture = e.run(cleaning_func=youtube_cleaner, har_identifier="fullscreen_test" + str(quality))
     captures.append(capture)
 
 for capture in captures:

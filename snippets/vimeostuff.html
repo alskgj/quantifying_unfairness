@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    </head>
+
+    <body>
+
+
+        <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+        <script>
+            var iframe = document.querySelector('iframe');
+            var player = new Vimeo.Player(iframe);
+
+            player.on('play', function() {
+                console.log('played the video!');
+            });
+
+            player.getVideoTitle().then(function(title) {
+                console.log('title:', title);
+            });
+        </script>
+
+    </body>
