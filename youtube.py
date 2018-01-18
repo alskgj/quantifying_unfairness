@@ -15,13 +15,27 @@
     - startup delay
 
 """
-from copy import deepcopy
+
 from dateutil.parser import parse
 from datetime import timedelta
 from json import load
+from urllib.parse import parse_qs
+import requests
+import sys
+
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 class Har:
-    def __init__(self, har):
+    GET_VIDEO_INFO = 'https://www.youtube.com/get_video_info?video_id='
+
+    def __init__(self, har, video_id):
+        self._video_info = None  # used to cache requests made to youtube video_info server
+
+        self.id = video_id
         self.entries = har['log']['entries']
 
         # sort out everything without itag
@@ -42,17 +56,95 @@ class Har:
         self.segments = newer_entries
 
         size = self.total_size()
-        print(f'loaded har, with {size} bits downloaded')
+
+        self.title = self.video_info.get('title', '_')
+        self.length_seconds = self.video_info['length_seconds'] # what to do if this is not here?
+
+        print(f'loaded vimeohar, with {size/1000000:.3f} MB downloaded')
 
         print(f'average resolution: {self.average_resolution()}')
         print(f'average quality change: {self.average_quality_variations()}')
+        print(self.manifest())
 
-    def get_param(self, entry, param):
-        for e in entry['request']['queryString']:
-            #print(e)
-            pass
+        self.parse_video_info()
+
+    @property
+    def video_info(self):
+        """Since this function makes a request we need to cache it..."""
+        if self._video_info:
+            return self._video_info
+        else:
+            video_info = parse_qs(requests.get(self.GET_VIDEO_INFO+self.id).text)
+            self._video_info = video_info
+        return video_info
+
+    def parse_video_info(self):
+        """I think there are three main ways youtube serves videos:
+        https://github.com/rg3/youtube-dl/blob/master/youtube_dl/extractor/youtube.py
+
+        1. rtmp - only livestream?
+        2. url_encoded_fmt_stream_map and adaptive_fmts
+        3. hlsvp
+
+        2.
+        ===============
+        most important thing seems to be: adaptive_map = parse_qs(self.video_info['adaptive_fmts'][0])
+        # explore this further
+        might also be helpful: url_encoded_fmt_stream_map
+
+        adaptive_fmts has:
+
+        key, len(value), value
+        ====================
+        itag 6 ['137', '140', '171', '249', '250', '251']
+        index 17 ['716-1791', '243-1788', '714-1789', '243-1780', '715-1790', '243-1764', '715-1790', '243-1738',
+        '714-1789', '242-1711', '713-1788', '242-1710', '592-1187', '4452-5247', '272-1067', '272-1067', '272-1067']
+        fps 12 ['30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30', '30']
+        url 17 [omitted]
+        init 17 ['0-715', '0-242', '0-713', '0-242', '0-714', '0-242', '0-714', '0-242', '0-713', '0-241', '0-712',
+        '0-241', '0-591', '0-4451', '0-271', '0-271', '0-271']
+        type 17 ['video/mp4; codecs="avc1.640028"', 'video/webm; codecs="vp9"', 'video/mp4; codecs="avc1.4d401f"',
+        'video/webm; codecs="vp9"', 'video/mp4; codecs="avc1.4d401f"', 'video/webm; codecs="vp9"',
+        'video/mp4; codecs="avc1.4d401e"', 'video/webm; codecs="vp9"', 'video/mp4; codecs="avc1.4d4015"',
+        'video/webm; codecs="vp9"', 'video/mp4; codecs="avc1.4d400c"', 'video/webm; codecs="vp9"',
+        'audio/mp4; codecs="mp4a.40.2"', 'audio/webm; codecs="vorbis"', 'audio/webm; codecs="opus"',
+        'audio/webm; codecs="opus"', 'audio/webm; codecs="opus"']
+        projection_type 17 ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1']
+        clen 12 ['240197781', '155916239', '124945969', '86655256', '57412087', '43590983', '26382448', '23725307',
+        '8678074', '12713709', '4170823', '5614839']
+        size 12 ['1920x1080', '1920x1080', '1280x720', '1280x720', '854x480', '854x480', '640x360', '640x360',
+        '426x240', '426x240', '256x144', '256x144']
+        bitrate 17 ['4416411', '3193895', '2695845', '1755296', '1348383', '889960', '642067', '480823', '248346',
+        '257830', '112644', '114639', '128066', '121140', '55045', '71522', '140868']
+        quality_label 12 ['1080p', '1080p', '720p', '720p', '480p', '480p', '360p', '360p', '240p', '240p', '144p',
+        '144p']
+        xtags 12 [',itag=248', ',itag=136', ',itag=247', ',itag=135', ',itag=244', ',itag=134', ',itag=243',
+        ',itag=133', ',itag=242', ',itag=160', ',itag=278', ',clen=7326711']
+        """
+        if 'rtmp' in self.video_info:
+            logging.warning('Found rtmp parameter in video_info. Parsing of livestreams not supported.')
+            sys.exit(1)
+        elif 'url_encoded_fmt_stream_map' in self.video_info or 'adaptive_fmts' in self.video_info:
+            adaptive = map(parse_qs, self.video_info['adaptive_fmts'])
+            stream_map = map(parse_qs, self.video_info['url_encoded_fmt_stream_map'])
+
+            print('here', list(adaptive))
+            for e in adaptive:
+                print(e)
+            print(stream_map)
 
 
+        print(self.video_info)
+
+
+    def manifest(self):
+        """Tries to find the manifest file - youtube har shouldn't be stripped and capture_content flag must be
+        set to true during recording"""
+        print(self.video_info)
+
+        return NotImplementedError
+
+    def extract_param(self, entry, param):
         try:
             result = [query for query in entry['request']['queryString'] if query['name'] == param][0]['value']
         except IndexError:
@@ -65,13 +157,15 @@ class Har:
         # clen: length of the segment
         for entry in self.segments:
             try:
-                clen = self.get_param(entry, 'clen')
+                clen = self.extract_param(entry, 'clen')
             except TypeError:
                 clen = 'no clen'
-            itag = self.get_param(entry, 'itag')
-            range = self.get_param(entry, 'range')
+            itag = self.extract_param(entry, 'itag')
+            try:
+                range = self.extract_param(entry, 'range')
+            except TypeError:
+                range = 'no range'
 
-            print(itag, clen, range)
         # api: http://www.youtube.com/get video info?video id=
         return NotImplementedError
 
@@ -143,5 +237,5 @@ class Resolution:
 
 if __name__ == '__main__':
 
-    data = load(open('har_files/fullscreen_test1501515674088.har'))
-    Har(data)
+    data = load(open('har_files/fulltest1516122211.json'))
+    Har(data, 'IKlFBfT1mJU')

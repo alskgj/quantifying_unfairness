@@ -32,7 +32,7 @@ class VimeoHar:
         self.segments = [e for e in self.entries if 'segment' in e['request']['url'] if e['response']['status'] == 200]
 
         size = self.total_size()
-        print(f'loaded vimeohar, with {size} bits downloaded')
+        print(f'loaded vimeohar, with {size/1000000:.3f} MB downloaded')
 
         print(f'average resolution: {self.average_resolution()}')
         print(f'average quality change: {self.average_quality_variations()}')
@@ -188,5 +188,5 @@ class Resolution:
 
 if __name__ == '__main__':
     from json import load
-    data = load(open('../har_files/vimeo_parallel1515014752.har'))
+    data = load(open('har_files/vimeo_parallel.har'))
     VimeoHar(data)
