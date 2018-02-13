@@ -2,6 +2,7 @@
 VIDEO_ENDED = 0
 VIDEO_PLAYING = 1
 VIDEO_PAUSED = 2
+VIDEO_REBUFFERING = 3
 
 
 def check_video_status(driver):
@@ -37,3 +38,9 @@ methods_of_yt = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 'loadVideoByU
                  'getSphericalConfig', 'setSphericalConfig', 'setBlackout', 'onAdUxClicked', 'getPlayerSize',
                  'setGlobalCrop', 'wakeUpControls', 'isMutedByMutedAutoplay', 'getVideoAspectRatio',
                  'setUseFastSizingOnWatch', '__domApi']
+
+
+# console.log('current time', player.getCurrentTime());            gives us current time
+# console.log('Fraction loaded', player.getVideoLoadedFraction()); gives us fraction loaded
+# qoe should be quite simple - just poll all the time - noticing buffering events (playerstate)
+# and quality getvideoquality or something 

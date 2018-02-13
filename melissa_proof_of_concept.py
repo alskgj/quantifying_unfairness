@@ -4,7 +4,9 @@ import logging
 import sys
 
 
-video_id = input("give me a youtube id please: ")
+
+# video_id = input("give me a youtube id please: ")
+video_id = 'pFbCxuvknWM'
 
 GET_VIDEO_INFO = 'https://www.youtube.com/get_video_info?video_id='
 video_info = parse_qs(requests.get(GET_VIDEO_INFO+video_id).text)
@@ -20,8 +22,13 @@ elif 'url_encoded_fmt_stream_map' in video_info or 'adaptive_fmts' in video_info
     print('Content of adaptive fmts')
     for val, key in adaptive.items():
         print(val, key)
+        if val == 'url':
+            for url in key:
+                print(parse_qs(url))
+
 
     print()
     print('Content of url encoded fmt stream map')
     for val, key in stream_map.items():
         print(val, key)
+
