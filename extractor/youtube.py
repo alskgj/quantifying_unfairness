@@ -71,6 +71,7 @@ class Youtube(threading.Thread):
 
         self.driver.get(choice(self.urls))
 
+
         data = {}
         time.clock()
         last_datapoint = {}
