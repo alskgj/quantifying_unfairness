@@ -1,9 +1,10 @@
 import os.path
 
 current_path = os.path.dirname(__file__)
-PROXY_EXECUTABLE = os.path.join(current_path, "browsermob-proxy-2.1.4/bin/browsermob-proxy.bat")
-FIREFOX_EXECUTABLE = os.path.join(current_path, "geckodriver.exe")
-CHROME_EXECUTABLE = os.path.join(current_path, "chromedriver.exe")
+PROXY_EXECUTABLE = os.path.join(current_path, "browsermob-proxy-2.1.4/bin/browsermob-proxy")
+FIREFOX_EXECUTABLE = os.path.join(current_path, "geckodriver")
+CHROME_EXECUTABLE = os.path.join(current_path, "chromedriver")
+
 
 
 LOG_DIR = os.path.join(current_path, 'logs')

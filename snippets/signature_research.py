@@ -33,7 +33,7 @@ changes = [
     ('expire', ['1518546949']),
     ('dur', ['1390.988']),
     ('clen', ['84522584']),
-    ('range', ['0-84522484']),
+    ('range', ['0-2484']),
     ('rn', ['100']),
     ('rbuf', ['100']),
 ]
@@ -58,3 +58,5 @@ for change in changes:
 
 print(f'Same signature, even if parameter changes: {changable}')
 print(f'Different signature: {unchangeable}')
+
+# ['c', 'fvip', 'range', 'rn', 'rbuf']

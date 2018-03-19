@@ -1,0 +1,58 @@
+"""
+    shaper.py
+    =========
+    
+    using tc to limit bandwith
+"""
+import subprocess
+import sys
+
+
+class Shaper:
+
+    DEVICE = 'wlp58s0'
+
+    def __init__(self):
+
+        # this attribute describes the current limit, 0 means no limit
+        self.download_limit = 0
+
+        result = subprocess.run(['whoami'], stdout=subprocess.PIPE)
+        username = result.stdout.decode('utf-8').strip()
+        print(f'Running as [{username}]')
+        if username != 'root':
+            print(f'ERROR: Trying to shape traffic as nonroot, logged in as: [{username}]')
+            print('Exiting...')
+            sys.exit(1)
+
+        # clean up previously set up rules
+        print('Trying to delete ingress filter')
+        self.reset_ingress()
+
+
+    def limit_download(self, amount):
+        """
+
+        :param amount: Limits bandwith to {amount} kbit
+        :return:
+        """
+        self.download_limit = amount
+        subprocess.run(['tc', 'qdisc', 'add', 'dev', self.DEVICE, 'handle', 'ffff:', 'ingress'])
+        subprocess.run(['tc', 'filter', 'add', 'dev', self.DEVICE, 'parent', 'ffff:', 'protocol', 'ip', 'prio', '50',
+                        'u32', 'match', 'ip', 'src', '0.0.0.0/0', 'police', 'rate', f'{amount}kbit', 'burst', '10k',
+                        'drop', 'flowid', ':1'])
+
+    def reset_ingress(self):
+        result = subprocess.run(['tc', 'qdisc', 'del', 'dev', self.DEVICE, 'ingress'])
+        self.download_limit = 0
+
+    def __del__(self):
+        print('cleaning up traffic shaping rules...')
+        # todo cleanup trafficshaping rules
+
+if __name__ == '__main__':
+    S = Shaper()
+    input('press enter to start limiting')
+    S.limit_download(1000)
+    input('press enter to reset')
+    S.reset_ingress()

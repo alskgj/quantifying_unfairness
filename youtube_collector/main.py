@@ -4,8 +4,7 @@ from json import dump
 
 from selenium import webdriver
 from browsermobproxy import Server
-from selenium.webdriver.common.proxy import Proxy, ProxyType
-import requests
+
 import config
 from youtube_helper import check_video_status, VIDEO_PAUSED, VIDEO_ENDED
 
@@ -23,14 +22,15 @@ def new_driver(proxy):
     # setting up selenium
 
     profile = webdriver.FirefoxProfile()
-    #profile.set_proxy(proxy.selenium_proxy())
+    profile.set_proxy(proxy.selenium_proxy())
 
     profile.set_preference("media.volume_scale", "0.0")
 
-    driver = webdriver.Firefox(proxy=proxy.selenium_proxy(),
+    driver = webdriver.Firefox(
         firefox_profile=profile,
-                               executable_path=config.FIREFOX_EXECUTABLE,
-                               log_path=config.SELENIUM_LOGS)
+        executable_path=config.FIREFOX_EXECUTABLE,
+        log_path=config.SELENIUM_LOGS
+    )
 
     return driver
 
@@ -38,7 +38,7 @@ def new_driver(proxy):
 VIDEOS_TO_COLLECT = 50
 
 # server = Server(config.PROXY_EXECUTABLE)
-server = Server(r"C:\Users\zen\Desktop\browsermob-proxy-2.1.4\bin\browsermob-proxy.bat", {'port': 8822})
+server = Server(config.PROXY_EXECUTABLE, {'port': 8822})
 
 server.start({'log_path': config.LOG_DIR, 'log_file': 'server.log'})
 
@@ -68,26 +68,27 @@ for i in range(startnum, startnum+VIDEOS_TO_COLLECT):
 
     limit = randint(1, 80)
     download_limit(browsermob_proxy, limit)
+    print(f'limited to {limit}')
     sleep(5)
 
     t = clock()
     limits.append((round(clock() - t), limit))
 
     while True:
-
+        print(driver.execute_script("return document.getElementById('movie_player').getVideoLoadedFraction()"))
         status = check_video_status(driver)
         if status == VIDEO_ENDED or status == VIDEO_PAUSED:
             print('videoplayback ended')
             break
 
         # limit with probability 10% -- we don't want to limit too often since browsermobproxy seems to break then
-        if not randint(0, 10):
+        if not randint(0, 100):
             limit = randint(0, 80)
             download_limit(browsermob_proxy, limit)
             limits.append((round(clock()-t), limit))
             print(f'limiting download speed to {limit} at time {round(clock()-t)}')
 
-        sleep(3)
+        sleep(0.3)
 
     with open('har_files/'+str(i)+'.json', 'w+') as fo:
         dump(browsermob_proxy.har, fo)
