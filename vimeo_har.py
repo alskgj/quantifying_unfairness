@@ -18,24 +18,75 @@
 
 """
 
-
 from json import loads
 import re
 from dateutil.parser import parse
 from datetime import timedelta
 
+import logging
+from json import load
+
+logger = logging.getLogger()
+
 
 class VimeoHar:
-    def __init__(self, har):
+    def __init__(self, har_path):
+        har = load(open(har_path))
+        logger.info(f'Loaded har from {har_path}')
         self.entries = har['log']['entries']
 
         self.segments = [e for e in self.entries if 'segment' in e['request']['url'] if e['response']['status'] == 200]
 
         size = self.total_size()
-        print(f'loaded vimeohar, with {size/1000000:.3f} MB downloaded')
+        logger.info(f'Downloads in har file: {size/1000000:.3f} MB')
+        logger.info(f'average resolution: {self.average_resolution()}')
 
-        print(f'average resolution: {self.average_resolution()}')
-        print(f'average quality change: {self.average_quality_variations()}')
+    def quality(self):
+        segments = self.video_segments()
+
+        widths = [segment['width'] for segment in segments]
+        heigths = [segment['height'] for segment in segments]
+
+        return zip(widths, heigths)
+
+    def plot_time_quality(self):
+        """ To easily plot the quality against time we need to convert it to the right format.
+        If we have the heigth data points: [270, 360, 360], and total duration 20 we get:
+
+        [270, None (4 times), 270, 360, None (4 times), 360, 360, None (4 times), 360, None (2 times)]
+        --> since we know each segment in vimeo is 6 seconds long
+
+        :return: [(0, 270), None, None, None, None (5, 270), None, ...]
+        """
+        segments = self.video_segments()
+        downloaded_duration = len(segments)*6
+
+        data = [s['height'] for s in segments]
+        lastpoint = data[-1]
+        data = list(enumerate(data))
+        data = {i*6: height for i, height in data}
+
+        last = None
+        for i in range(downloaded_duration):
+            if i in data:
+
+                # quality has not changed
+                if last == data[i]:
+                    data[i] = None
+                # quality changed
+                else:
+                    if i-1 in data:
+                        data[i-1] = last
+                    last = data[i]
+
+            else:
+                data[i] = None
+
+        data[downloaded_duration] = lastpoint
+
+        result = list(data.items())
+        result.sort(key=lambda e: e[0])
+        return result
 
     def masterjson(self):
         """Returns the master.json file. Only exists in Vimeo Har files.
@@ -49,7 +100,7 @@ class VimeoHar:
         pattern = re.compile(r'/(video|audio)/(\d+)/chop')
         id_ = pattern.findall(url)
         if not id_:
-            print(f'url {url} does not contain a vimeo id.')
+            logger.error(f'url {url} does not contain a vimeo id.')
             return
 
         result = None
@@ -60,7 +111,7 @@ class VimeoHar:
                 break
 
         if not result:
-            print(f'no result found for url {url}')
+            logger.warning(f'no result found for url {url}')
             return
 
         if type_ == 'audio':
@@ -75,7 +126,7 @@ class VimeoHar:
         pattern = re.compile(r'/(video|audio)/(\d+)/chop')
         id_ = pattern.findall(url)
         if not id_:
-            print(f'url {url} does not contain a vimeo id.')
+            logger.error(f'url {url} does not contain a vimeo id.')
             return
 
         result = None
@@ -86,7 +137,7 @@ class VimeoHar:
                 break
 
         if not result:
-            print(f'no result found for url {url}')
+            logger.warning(f'no result found for url {url}')
             return
 
         for seg in result['segments']:
@@ -187,6 +238,6 @@ class Resolution:
 
 
 if __name__ == '__main__':
-    from json import load
-    data = load(open('har_files/vimeo_parallel.har'))
-    VimeoHar(data)
+    logging.basicConfig(level=logging.INFO)
+    har = VimeoHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/vimeo_e1_har.json')
+    print(har.plot_time_quality())

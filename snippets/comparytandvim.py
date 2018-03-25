@@ -1,6 +1,6 @@
 from json import load
 
-from vimeo import VimeoHar
+from vimeo_har import VimeoHar
 
 data = load(open('../har_files/vimeo_parallel.har'))
 VimeoHar(data)

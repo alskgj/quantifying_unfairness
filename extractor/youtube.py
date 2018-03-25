@@ -6,21 +6,19 @@
 """
 
 import logging
-from random import choice
+import os
 from pprint import pprint
-
 
 import time
 from har_helper import youtube_cleaner
 from json import dump
 
-from config import HAR_DIR
+from config import HAR_DIR, LOG_DIR
 
 from .baseextractor import BaseExtractor
 
-logging.basicConfig(level=logging.INFO)
-
-import threading
+logger = logging.getLogger(__file__)
+logger.addHandler(logging.FileHandler(os.path.join(LOG_DIR, 'youtube_playback.log')))
 
 
 class Youtube(BaseExtractor):
@@ -43,13 +41,14 @@ class Youtube(BaseExtractor):
     def run(self, capture_content=False, capture_binary_content=False, har_name='youtube_out',
             clean_har=False):
 
+        if self.capture_har:
+            self.proxy.new_har(f"{har_name}", options={
+                'captureHeaders': True,
+                'captureContent': capture_content,
+                'captureBinaryContent': capture_binary_content}
+                               )
 
-        self.proxy.new_har(f"{har_name}", options={
-            'captureHeaders': True,
-            'captureContent': capture_content,
-            'captureBinaryContent': capture_binary_content}
-                           )
-
+        logger.info(f'Starting playback of: {self.url}')
         self.driver.get(self.url)
 
         data = {}
@@ -62,13 +61,14 @@ class Youtube(BaseExtractor):
             time.sleep(1)
 
         while self.status() not in [self.VIDEO_ENDED, self.VIDEO_PAUSED]:
-            datapoint = {}
+            datapoint = dict()
             datapoint['status'] = self.VIDEO_STATES[self.status()]
             datapoint['quality'] = self.quality()
             datapoint['total_dl_bandwith'] = self.shaper.download_limit
             if last_datapoint != datapoint:
                 last_datapoint = datapoint.copy()
                 datapoint['time'] = time.time()-starttime
+                logger.info(f'{round(datapoint["time"], 2)} {datapoint["quality"]}')
                 data[i] = datapoint
                 i += 1
 
@@ -80,22 +80,23 @@ class Youtube(BaseExtractor):
         datapoint['time'] = time.clock()
         data[i] = datapoint
 
-        pprint(data)
+        # pprint(data)
         # save the data
         filename = f'{HAR_DIR}/{har_name}_meta.json'
         with open(filename, 'w+') as fo:
             dump(data, fo)
-            logging.info(f'dumped metadata to {filename}')
+            logger.info(f'dumped metadata to {filename}')
 
         # save the har
-        har = self.proxy.har
-        if clean_har:
-            har = youtube_cleaner(har)
+        if self.capture_har:
+            har = self.proxy.har
+            if clean_har:
+                har = youtube_cleaner(har)
 
-        filename = f'{HAR_DIR}/{har_name}.json'
-        with open(filename, 'w+') as fo:
-            dump(har, fo)
-            logging.info(f'dumped har file to {filename}')
+            filename = f'{HAR_DIR}/{har_name}.json'
+            with open(filename, 'w+') as fo:
+                dump(har, fo)
+                logger.info(f'dumped har file to {filename}')
 
         self.driver.quit()
 

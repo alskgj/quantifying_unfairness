@@ -6,13 +6,14 @@
 """
 import subprocess
 import sys
+from config import NETWORK_INTERFACE
 
 
 class Shaper:
 
-    DEVICE = 'wlp58s0'
+    DEVICE = NETWORK_INTERFACE
 
-    def __init__(self):
+    def __init__(self, ignore_nonroot=False):
 
         # this attribute describes the current limit, 0 means no limit
         self.download_limit = 0
@@ -22,13 +23,13 @@ class Shaper:
         print(f'Running as [{username}]')
         if username != 'root':
             print(f'ERROR: Trying to shape traffic as nonroot, logged in as: [{username}]')
-            print('Exiting...')
-            sys.exit(1)
+            if not ignore_nonroot:
+                print('Exiting...')
+                sys.exit(1)
 
         # clean up previously set up rules
         print('Trying to delete ingress filter')
         self.reset_ingress()
-
 
     def limit_download(self, amount):
         """
@@ -36,6 +37,8 @@ class Shaper:
         :param amount: Limits bandwith to {amount} kbit
         :return:
         """
+        self.reset_ingress()
+
         self.download_limit = amount
         subprocess.run(['tc', 'qdisc', 'add', 'dev', self.DEVICE, 'handle', 'ffff:', 'ingress'])
         subprocess.run(['tc', 'filter', 'add', 'dev', self.DEVICE, 'parent', 'ffff:', 'protocol', 'ip', 'prio', '50',
@@ -43,6 +46,7 @@ class Shaper:
                         'drop', 'flowid', ':1'])
 
     def reset_ingress(self):
+        # todo suppress RTNETLINK answers: Invalid argument if qdisc ingress not here
         result = subprocess.run(['tc', 'qdisc', 'del', 'dev', self.DEVICE, 'ingress'])
         self.download_limit = 0
 

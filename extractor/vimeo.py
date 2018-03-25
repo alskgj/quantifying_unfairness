@@ -3,83 +3,98 @@ import os.path
 from json import dump
 import logging
 import time
-from config import HAR_DIR
-logging.basicConfig(level=logging.INFO)
+from config import HAR_DIR, VIMEO_EMBED_DIR
+from jinja2 import Template
+from config import VIMEO_TEMPLATE, LOG_DIR
+
+logger = logging.getLogger(__file__)
+logger.addHandler(logging.FileHandler(os.path.join(LOG_DIR, 'vimeo_playback.log')))
+
+
+# todo save shaper information in log file
 
 class Vimeo(BaseExtractor):
 
     def run(self, capture_content=True, capture_binary_content=False):
 
-        har_name = 'vimeo'
+        if not self.experiment_name:
+            self.experiment_name = 'vimeo'
+
         self.url = self.embed(self.url)
 
-        self.proxy.new_har(har_name, options={
-            'captureHeaders': True,
-            'captureContent': capture_content,
-            'captureBinaryContent': capture_binary_content}
-                           )
+        if self.capture_har:
+            self.proxy.new_har(self.experiment_name, options={
+                'captureHeaders': True,
+                'captureContent': capture_content,
+                'captureBinaryContent': capture_binary_content}
+                               )
+        logger.info(f'Starting playback of: {self.url}')
         self.driver.get(self.url)
-
+        starttime = time.time()
 
         # wait until video is paused
-
+        metadata = []
         last_quality = []
         while True:
             time.sleep(1)
+
+            #####################################################
+            # detect if videoplayback was paused or ended.
+            #####################################################
             paused = self.driver.execute_script('return paused;')
-            if paused:
+            ended = self.driver.execute_script('return ended;')
+            if paused or ended:
                 break
-            # TODO implement breaking on stop
+
             new_quality = self.driver.execute_script('return quality;')
             if new_quality != last_quality:
-                print('Quality:', new_quality)
+                current_time = time.time() - starttime
+                logger.info(f'{round(current_time, 2)} Quality: {new_quality}')
+                metadata.append({
+                    'time': round(current_time, 2),
+                    'quality': new_quality
+                })
                 last_quality = new_quality
 
+        # video has ended
+        metadata.append({
+            'time': round(time.time() - starttime, 2),
+            'quality': last_quality
+        })
 
-        # save the har
-        har = self.proxy.har
-
-        filename = f'{HAR_DIR}/{har_name}.json'
+        # playback has ended - save har and metadata
+        filename = f'{HAR_DIR}/{self.experiment_name}_metadata.json'
         with open(filename, 'w+') as fo:
-            dump(har, fo)
-            logging.info(f'dumped har file to {filename}')
+            dump(metadata, fo)
+        logger.info(f'dumped metadata file to: {filename}')
+
+        if self.capture_har:
+            # save the har
+            har = self.proxy.har
+
+            filename = f'{HAR_DIR}/{self.experiment_name}_har.json'
+            with open(filename, 'w+') as fo:
+                dump(har, fo)
+            logger.info(f'dumped har file to:      {filename}')
+            self.proxy.close()
 
         self.driver.quit()
 
     def embed(self, url):
+        """Takes a vimeo url and embeds it in a local template, used so we can use the vimeo javascript api.
+        :param url: A on vimeo
+        :return: A path to a local file which is setup so that the provided url on vimeo
+        will be embeded.
+        """
         id_ = url.split('/')[-1]
         url = f'https://player.vimeo.com/video/{id_}'
 
-        vimeo_template = f"""<iframe src="{url}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        vimeo_template = Template(open(VIMEO_TEMPLATE).read()).render(url=url)
 
-        <script src="https://player.vimeo.com/api/player.js"></script>
-        <script>
-            var iframe = document.querySelector('iframe');
-            var player = new Vimeo.Player(iframe);
-            var paused = false;
-            var quality = [];
-            
-            player.on('progress', function () {{
-                Promise.all([player.getVideoWidth(), player.getVideoHeight()]).then(function(dimensions) {{
-                    quality = dimensions;
-                }});
-            }});
-
-            player.on('pause', function() {{
-                console.log('paused!');
-                paused = true;
-            }});
-            player.on('play', function() {{
-                console.log('started playing!');
-                paused = false;
-            }});
-            
-            player.play().then(function() {{}});
-
-        </script>"""
-
-        with open('vimeo_embed.html', 'w') as fo:
+        file = os.path.join(VIMEO_EMBED_DIR, f'{self.experiment_name}_embed.html')
+        with open(file, 'w') as fo:
             fo.write(vimeo_template)
 
+        logger.info(f'embedded {url} in local file {file}')
+        return 'file:///'+file
 
-        return 'file:///'+os.path.realpath('vimeo_embed.html')
