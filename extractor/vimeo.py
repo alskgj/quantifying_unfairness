@@ -3,7 +3,7 @@ import os.path
 from json import dump
 import logging
 import time
-from config import HAR_DIR, VIMEO_EMBED_DIR
+from config import HAR_DIR, VIMEO_EMBED_DIR, OUTPUT_DIR
 from jinja2 import Template
 from config import VIMEO_TEMPLATE, LOG_DIR
 
@@ -52,18 +52,20 @@ class Vimeo(BaseExtractor):
                 logger.info(f'{round(current_time, 2)} Quality: {new_quality}')
                 metadata.append({
                     'time': round(current_time, 2),
-                    'quality': new_quality
+                    'quality': new_quality,
+                    'bandwith': self.shaper.download_limit
                 })
                 last_quality = new_quality
 
         # video has ended
         metadata.append({
             'time': round(time.time() - starttime, 2),
-            'quality': last_quality
+            'quality': last_quality,
+            'bandwith': self.shaper.download_limit
         })
 
         # playback has ended - save har and metadata
-        filename = f'{HAR_DIR}/{self.experiment_name}_metadata.json'
+        filename = f'{OUTPUT_DIR}/{self.experiment_name}_metadata.json'
         with open(filename, 'w+') as fo:
             dump(metadata, fo)
         logger.info(f'dumped metadata file to: {filename}')

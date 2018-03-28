@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yay Vimeo</title>
+</head>
+<body>
+
+        <iframe src="{{url}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <script>
+            var iframe = document.querySelector('iframe');
+            var player = new Vimeo.Player(iframe);
+            var paused = false;
+            var ended = false;
+            var quality = [];
+            var progress;
+            var rebuffering = false;
+
+            player.on('progress', function (data) {
+                Promise.all([player.getVideoWidth(), player.getVideoHeight()]).then(function(dimensions) {
+                    quality = dimensions;
+                });
+                progress = data;
+            });
+
+            player.on('pause', function() {
+                console.log('paused!');
+                paused = true;
+            });
+            player.on('play', function() {
+                console.log('started playing!');
+                paused = false;
+            });
+            player.on('ended', function() {
+                console.log('playback ended!');
+                ended = true;
+            });
+            player.on('bufferstart', function() {
+                rebuffering = true;
+            });
+            player.on('bufferend', function() {
+                rebuffering = false;
+            });
+
+
+
+            player.play().then(function() {});
+
+        </script>
+
+
+</body>
+</html>

@@ -37,6 +37,7 @@ class Shaper:
         :param amount: Limits bandwith to {amount} kbit
         :return:
         """
+        print(f'limiting to {amount}')
         self.reset_ingress()
 
         self.download_limit = amount
@@ -53,6 +54,7 @@ class Shaper:
     def __del__(self):
         print('cleaning up traffic shaping rules...')
         # todo cleanup trafficshaping rules
+
 
 if __name__ == '__main__':
     S = Shaper()

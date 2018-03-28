@@ -88,6 +88,7 @@ class BaseExtractor(threading.Thread):
         logging.info("Cleaning up...")
 
         self.driver.quit()
+        self.shaper.reset_ingress()
 
         if self.capture_har:
             self.proxy.close()

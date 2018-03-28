@@ -61,32 +61,34 @@ class VimeoHar:
         segments = self.video_segments()
         downloaded_duration = len(segments)*6
 
-        data = [s['height'] for s in segments]
-        lastpoint = data[-1]
-        data = list(enumerate(data))
-        data = {i*6: height for i, height in data}
+        ########################################################
+        # Get the quality by looking at the request headers,
+        # those are sorted by har timings.
+        # Only get the newest datapoint for each playbacktime.
+        ########################################################
+        data = [(s['height'], s['video_start']) for s in segments]
+        newdata = {}
 
-        last = None
-        for i in range(downloaded_duration):
-            if i in data:
+        for point in data:
+            newdata[point[1]] = point[0]
+        data = list(newdata.items())
 
-                # quality has not changed
-                if last == data[i]:
-                    data[i] = None
-                # quality changed
-                else:
-                    if i-1 in data:
-                        data[i-1] = last
-                    last = data[i]
+        ########################################################
+        # Insert some datapoints to reflect that a quality
+        # stays for the whole duration of the chunk.
+        ########################################################
+        newdata = []
+        oldqual = data[0][1]
 
+        for point in data:
+            if point[1] == oldqual:
+                newdata.append(point)
             else:
-                data[i] = None
+                newdata.append((point[0], oldqual))
+                newdata.append(point)
+                oldqual = point[1]
 
-        data[downloaded_duration] = lastpoint
-
-        result = list(data.items())
-        result.sort(key=lambda e: e[0])
-        return result
+        return newdata
 
     def masterjson(self):
         """Returns the master.json file. Only exists in Vimeo Har files.

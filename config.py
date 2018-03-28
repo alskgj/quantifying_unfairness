@@ -11,8 +11,10 @@ SELENIUM_LOGS = os.path.join(current_path, 'logs', 'firefox.log')
 PROXYSERVER_LOG = os.path.join(current_path, 'logs', 'server.log')
 
 HAR_DIR = os.path.join(current_path, 'har_files')
+OUTPUT_DIR = os.path.join(current_path, 'output')
+
 VIMEO_TEMPLATE = os.path.join(current_path, 'vimeo_embed_template.html')
-VIMEO_EMBED_DIR = os.path.join(current_path, 'output')
+VIMEO_EMBED_DIR = OUTPUT_DIR
 
 # traffic shaping
 NETWORK_INTERFACE = 'eno1'
