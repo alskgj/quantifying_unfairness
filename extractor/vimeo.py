@@ -35,6 +35,7 @@ class Vimeo(BaseExtractor):
         # wait until video is paused
         metadata = []
         last_quality = []
+        last_rebuffering = False
         while True:
             time.sleep(1)
 
@@ -43,17 +44,20 @@ class Vimeo(BaseExtractor):
             #####################################################
             paused = self.driver.execute_script('return paused;')
             ended = self.driver.execute_script('return ended;')
+            new_rebuffering = self.driver.execute_script('return rebuffering;')
+            new_quality = self.driver.execute_script('return quality;')
             if paused or ended:
                 break
 
-            new_quality = self.driver.execute_script('return quality;')
-            if new_quality != last_quality:
+            if new_quality != last_quality or new_rebuffering != last_rebuffering:
+                last_rebuffering = new_rebuffering
                 current_time = time.time() - starttime
                 logger.info(f'{round(current_time, 2)} Quality: {new_quality}')
                 metadata.append({
                     'time': round(current_time, 2),
                     'quality': new_quality,
-                    'bandwith': self.shaper.download_limit
+                    'bandwith': self.shaper.download_limit,
+                    'rebuffering': new_rebuffering
                 })
                 last_quality = new_quality
 
@@ -65,7 +69,7 @@ class Vimeo(BaseExtractor):
         })
 
         # playback has ended - save har and metadata
-        filename = f'{OUTPUT_DIR}/{self.experiment_name}_metadata.json'
+        filename = f'{HAR_DIR}/{self.experiment_name}_metadata.json'
         with open(filename, 'w+') as fo:
             dump(metadata, fo)
         logger.info(f'dumped metadata file to: {filename}')

@@ -6,7 +6,7 @@ import sys
 
 
 # video_id = input("give me a youtube id please: ")
-video_id = 'pFbCxuvknWM'
+video_id = '6cKZCPqOdaE'
 
 GET_VIDEO_INFO = 'https://www.youtube.com/get_video_info?video_id='
 video_info = parse_qs(requests.get(GET_VIDEO_INFO+video_id).text)

@@ -90,6 +90,58 @@ class VimeoHar:
 
         return newdata
 
+    def extract_param(self, entry, param, location='request'):
+        try:
+            result = [query for query in entry[location]['headers'] if query['name'] == param][0]['value']
+        except IndexError:
+            raise TypeError
+        return result
+
+    def plot_mb_time(self):
+        """ To easily plot the bandwith against time we need to convert it to the right format.
+        Packetsize is in megabytes
+        :return: [(0, 0), (t1, sizeofpacket1), (t2, sizeofpacket1+sizeofpacket2), ...]
+        """
+
+        sizes = [segment['response']['bodySize']/(1024*1024) for segment in self.segments]
+        aggregate_sizes = []
+        current = 0
+        for size in sizes:
+            current += size
+            aggregate_sizes.append(current)
+
+        # dateutil magic here. gets date of completion (something like 'Thu, 05 Apr 2018 19:50:17 GMT')
+        # and parses it to a python datetime object
+        times = [parse(self.extract_param(segment, 'Date', 'response')) for segment in self.segments]
+        starttime = times[0]
+        # converts all those datetimes into seconds from start, so now we have an int list [0, ...]
+        times = [(time-starttime).total_seconds() for time in times]
+
+        return list(zip(times, aggregate_sizes))
+
+    def plot_bandwith_time(self, n=3):
+        """ Returns the bandwith in an easily plottable way,
+        n seconds moving average, megabits/s
+
+        :return:
+        """
+
+        # and parses it to a python datetime object
+        times = [parse(self.extract_param(segment, 'Date', 'response')) for segment in self.segments]
+        starttime = times[0]
+        # converts all those datetimes into seconds from start, so now we have an int list [0, ...]
+        times = [(time-starttime).total_seconds() for time in times]
+        sizes = [segment['response']['bodySize'] / (1024 * 1024) for segment in self.segments]
+
+        times_with_sizes = list(zip(times, sizes))
+
+        moving_sizes = []
+        for i in range(int(times[-1])-n):
+            chunks = [size for time, size in times_with_sizes if i <= time <= i+n-1]
+            moving_sizes.append(sum(chunks)/n*8)  # divide by n since it's an average, multiply by 8 to get bits
+        return list(enumerate(moving_sizes))
+
+
     def masterjson(self):
         """Returns the master.json file. Only exists in Vimeo Har files.
         """
@@ -241,5 +293,5 @@ class Resolution:
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    har = VimeoHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/vimeo_e1_har.json')
-    print(har.plot_time_quality())
+    har = VimeoHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/vimeo_combined_e1_har.json')
+    print(har.plot_bandwith_time())

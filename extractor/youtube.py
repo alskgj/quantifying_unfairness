@@ -3,6 +3,8 @@
     ==========
 
     A module abstracting interaction with youtube
+
+    information about youtube iframe: https://developers.google.com/youtube/iframe_api_reference
 """
 
 import logging
@@ -32,6 +34,16 @@ class Youtube(BaseExtractor):
         3: 'VIDEO_REBUFFERING'
     }
 
+    # https://developers.google.com/youtube/iframe_api_reference#Playback_quality
+    QUALITY = {
+        'small': [320, 240],
+        'medium': [640, 360],
+        'large': [850, 480],
+        'hd720': [1280, 720],
+        'hd1080': [1920, 1080],
+        'highres': None
+    }
+
     VIDEO_UNSTARTED = -1
     VIDEO_ENDED = 0
     VIDEO_PLAYING = 1
@@ -49,12 +61,15 @@ class Youtube(BaseExtractor):
                                )
 
         logger.info(f'Starting playback of: {self.url}')
+        if 'youtube' not in self.url.lower():
+            logger.error(f'{self.url} is not a recognized youtube url!')
+            return
+
         self.driver.get(self.url)
 
-        data = {}
+        data = []
         starttime = time.time()
         last_datapoint = {}
-        i = 0
 
         # waiting for video to start
         while self.status() == self.VIDEO_UNSTARTED:
@@ -69,20 +84,20 @@ class Youtube(BaseExtractor):
                 last_datapoint = datapoint.copy()
                 datapoint['time'] = time.time()-starttime
                 logger.info(f'{round(datapoint["time"], 2)} {datapoint["quality"]}')
-                data[i] = datapoint
-                i += 1
+                data.append(datapoint)
+
 
             time.sleep(0.1)
 
         datapoint = dict()
         datapoint['status'] = self.VIDEO_STATES[self.status()]
-        datapoint['quality'] = self.quality() # TODO get current quality
-        datapoint['time'] = time.clock()
-        data[i] = datapoint
+        datapoint['quality'] = self.quality()  # TODO get current quality
+        datapoint['time'] = time.time()-starttime
+        data.append(datapoint)
 
         # pprint(data)
         # save the data
-        filename = f'{HAR_DIR}/{har_name}_meta.json'
+        filename = f'{HAR_DIR}/{self.experiment_name}_metadata.json'
         with open(filename, 'w+') as fo:
             dump(data, fo)
             logger.info(f'dumped metadata to {filename}')
@@ -93,7 +108,7 @@ class Youtube(BaseExtractor):
             if clean_har:
                 har = youtube_cleaner(har)
 
-            filename = f'{HAR_DIR}/{har_name}.json'
+            filename = f'{HAR_DIR}/{self.experiment_name}_har.json'
             with open(filename, 'w+') as fo:
                 dump(har, fo)
                 logger.info(f'dumped har file to {filename}')
@@ -102,7 +117,7 @@ class Youtube(BaseExtractor):
 
     def quality(self):
         """Quality of current playback"""
-        return self._execute("getPlaybackQuality()")
+        return self.QUALITY[self._execute("getPlaybackQuality()")]
 
     def status(self):
         """Status of current playback"""

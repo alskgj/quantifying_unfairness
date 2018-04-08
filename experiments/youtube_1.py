@@ -1,7 +1,7 @@
 """
-Issue: BT-1
+Issue: BT-6
 
-Vimeo experiment 1
+Youtube experiment 1
 1. Limit bandwith to 3k
 2. Record results (playback characteristics as reported by javascript) and the har file
 3. Display results as graph: quality x time -
@@ -19,24 +19,25 @@ Results:
 4. Obvious?
 """
 
-from shaper import Shaper
-from extractor import Vimeo
-from config import VIMEO_AWAKENING
 import logging
-from plotter import plot_vimeo_quality_vs_time
+
+from shaper import Shaper
+from extractor import Youtube
+from config import YOUTUBE_AWAKENING
+from plotter import plot_youtube_quality_vs_time
+
+NAME = 'youtube_e1'
 
 logger = logging.getLogger(__name__)
 
 shaper = Shaper()
 shaper.limit_download(3000)
 
-name = 'vimeo_e1'
-
-extractor = Vimeo(VIMEO_AWAKENING, shaper=shaper, name=name)
+extractor = Youtube(YOUTUBE_AWAKENING, shaper=shaper, name=NAME)
 extractor.run()
 
 shaper.reset_ingress()
-logger.info('Experiment: vimeo_1 finished')
+logger.info(f'Experiment: {NAME} finished')
 
-plot_vimeo_quality_vs_time(name)
+plot_youtube_quality_vs_time(NAME)
 

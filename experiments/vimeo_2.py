@@ -11,7 +11,7 @@ from shaper import Shaper
 from extractor import Vimeo
 from config import VIMEO_AWAKENING
 import logging
-from plotter import plot
+from plotter import plot_vimeo_quality_vs_time
 import time
 
 logger = logging.getLogger(__name__)
@@ -37,5 +37,5 @@ for i in range(30):
 shaper.reset_ingress()
 logger.info(f'Experiment: {name} finished')
 
-plot(name)
+plot_vimeo_quality_vs_time(name)
 

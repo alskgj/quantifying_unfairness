@@ -29,10 +29,11 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class Har:
+class YoutubeHar:
     GET_VIDEO_INFO = 'https://www.youtube.com/get_video_info?video_id='
 
-    def __init__(self, har, video_id):
+    def __init__(self, har, video_id=None):
+        har = load(open(har))
         self._video_info = None  # used to cache requests made to youtube video_info server
 
         self.id = video_id
@@ -57,25 +58,40 @@ class Har:
 
         size = self.total_size()
 
-        self.title = self.video_info.get('title', '_')
-        self.length_seconds = self.video_info['length_seconds'] # what to do if this is not here?
+        if self.video_info:
+            self.title = self.video_info.get('title', '_')
+            self.length_seconds = self.video_info['length_seconds']  # what to do if this is not here?
 
-        print(f'loaded vimeohar, with {size/1000000:.3f} MB downloaded')
+            print(f'loaded vimeohar, with {size/1000000:.3f} MB downloaded')
 
-        print(f'average resolution: {self.average_resolution()}')
-        print(f'average quality change: {self.average_quality_variations()}')
-        print(self.manifest())
+            print(f'average resolution: {self.average_resolution()}')
+            print(f'average quality change: {self.average_quality_variations()}')
 
-        self.parse_video_info()
+            self.parse_video_info()
 
     @property
     def video_info(self):
-        """Since this function makes a request we need to cache it..."""
+        """Tries to find video_info. Sadly works only with some videos,
+        some of them are protected by copyright.
+
+        Since this function makes a request we need to cache it..."""
+        if not self.id:
+            logger.error('No video id known - can"t get video info')
+            return
         if self._video_info:
             return self._video_info
         else:
             video_info = parse_qs(requests.get(self.GET_VIDEO_INFO+self.id).text)
-            self._video_info = video_info
+
+        if 'status' in video_info and video_info['status'][0] == 'fail':
+            print(f'Failed to get video info. Reason: {video_info["reason"][0]}')
+
+        video_info = {
+            'title': 'Unknown',
+            'length_seconds': None
+        }
+
+        self._video_info = video_info
         return video_info
 
     def parse_video_info(self):
@@ -133,23 +149,15 @@ class Har:
                 print(e)
             print(stream_map)
 
-
-        print(self.video_info)
-
-
-    def manifest(self):
-        """Tries to find the manifest file - youtube har shouldn't be stripped and capture_content flag must be
-        set to true during recording"""
-        print(self.video_info)
-
-        return NotImplementedError
-
-    def extract_param(self, entry, param):
+    def extract_param(self, entry, param, location='request'):
         try:
-            result = [query for query in entry['request']['queryString'] if query['name'] == param][0]['value']
+            result = [query for query in entry[location]['queryString'] if query['name'] == param][0]['value']
         except IndexError:
             raise TypeError
         return result
+
+    def extract_header(self, entry, param):
+        return [query for query in entry['response']['headers'] if query['name'] == param][0]['value']
 
     def average_resolution(self):
         """QOE metric: Looks at each video segment and returns the average resolution"""
@@ -165,6 +173,8 @@ class Har:
                 range = self.extract_param(entry, 'range')
             except TypeError:
                 range = 'no range'
+
+            print(range, clen, itag, self.extract_param(entry, 'dur'))
 
         # api: http://www.youtube.com/get video info?video id=
         return NotImplementedError
@@ -226,6 +236,50 @@ class Har:
     def total_size(self):
         return sum([e['response']['bodySize'] for e in self.entries if e['response']['bodySize'] > 0])
 
+    def plot_yt_time(self):
+        """ To easily plot the bandwith against time we need to convert it to the right format.
+        Sizeofpacket is in megabytes
+        :return: [(0, 0), (t1, sizeofpacket1), (t2, sizeofpacket1+sizeofpacket2), ...]
+        """
+
+        sizes = [segment['response']['bodySize']/(1024*1024) for segment in self.segments]
+        aggregate_sizes = []
+        current = 0
+        for size in sizes:
+            current += size
+            aggregate_sizes.append(current)
+
+        # dateutil magic here. gets date of completion (something like 'Thu, 05 Apr 2018 19:50:17 GMT')
+        # and parses it to a python datetime object
+        times = [parse(self.extract_header(segment, 'Date')) for segment in self.segments]
+        starttime = times[0]
+        # converts all those datetimes into seconds from start, so now we have an int list [0, ...]
+        times = [(time-starttime).total_seconds() for time in times]
+
+        return list(zip(times, aggregate_sizes))
+
+    def plot_bandwith_time(self, n=3):
+        """ Returns the bandwith in an easily plottable way,
+        n seconds moving average, megabits/s
+
+        :return:
+        """
+
+        # and parses it to a python datetime object
+        times = [parse(self.extract_header(segment, 'Date')) for segment in self.segments]
+        starttime = times[0]
+        # converts all those datetimes into seconds from start, so now we have an int list [0, ...]
+        times = [(time-starttime).total_seconds() for time in times]
+        sizes = [segment['response']['bodySize'] / (1024 * 1024) for segment in self.segments]
+
+        times_with_sizes = list(zip(times, sizes))
+
+        moving_sizes = []
+        for i in range(int(times[-1])-n):
+            chunks = [size for time, size in times_with_sizes if i <= time <= i+n-1]
+            moving_sizes.append(sum(chunks)/n*8) # divide by n since it's an average, multiply by 8 to get bits
+        return list(enumerate(moving_sizes))
+
 
 class Resolution:
     def __init__(self, width, height):
@@ -237,5 +291,6 @@ class Resolution:
 
 if __name__ == '__main__':
 
-    data = load(open('har_files/fulltest1516122211.json'))
-    Har(data, 'IKlFBfT1mJU')
+    yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_e1_har.json')
+
+    print(yt.plot_yt_time())

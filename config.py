@@ -12,6 +12,7 @@ PROXYSERVER_LOG = os.path.join(current_path, 'logs', 'server.log')
 
 HAR_DIR = os.path.join(current_path, 'har_files')
 OUTPUT_DIR = os.path.join(current_path, 'output')
+CACHE_DIR = os.path.join(current_path, 'cache')
 
 VIMEO_TEMPLATE = os.path.join(current_path, 'vimeo_embed_template.html')
 VIMEO_EMBED_DIR = OUTPUT_DIR
