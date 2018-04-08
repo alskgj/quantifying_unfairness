@@ -5,6 +5,8 @@
     This script provides functionality to convert a youtube byterange, as seen
     in youtube parameters (range param) to a time in a video.
 
+    To use this install youtube-dl and ffprobe
+
     To provide this functionality the script
     1. Searches for the itag in the segment
     2. Uses `youtube-dl -F url` to download the video if it's not already cached
@@ -35,7 +37,7 @@ class Ranger:
         self.url = videourl
         self.title = videotitle
 
-    def range_to_time(self, segment):
+    def segment_to_playtime(self, segment, return_itag=False):
         """Takes a har entry as input, which is a youtube segment,
         returns a time range."""
         itag = [e for e in segment['request']['queryString'] if e['name'] == 'itag'][0]['value']
@@ -44,7 +46,11 @@ class Ranger:
             self.download(itag)
         byterange = [e for e in segment['request']['queryString'] if e['name'] == 'range'][0]['value']
         start, end = byterange.split('-')
-        return self.size_to_time(start, itag), self.size_to_time(end, itag)
+
+        if return_itag:
+            return self.size_to_time(start, itag), self.size_to_time(end, itag), itag
+        else:
+            return self.size_to_time(start, itag), self.size_to_time(end, itag)
 
     def download(self, itag):
         """Creates the caching dir if it doesn't exist, then downloads the video and
@@ -63,6 +69,7 @@ class Ranger:
         return os.path.exists(os.path.join(CACHE_DIR, f'{self.title}_{itag}'))
 
     def size_to_time(self, size, itag):
+        size = int(size)
         path = os.path.join(CACHE_DIR, f'{self.title}_{itag}')
 
         # this pattern matches:
@@ -76,20 +83,34 @@ class Ranger:
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.STDOUT)
 
+        data = []
         while True:
-            output = process.stdout.read(2000)
+            output = process.stdout.read(4000)
             if output == b'' and process.poll() is not None:
                 break
             if output:
                 output = output.decode()
 
-                print(pattern.findall(output))
+                data += pattern.findall(output)
 
+        nearest_pos = size-int(data[0][1])
+        nearest_time = 0
+        for time, pos in data:
+            time,  pos = float(time), int(pos)
+            if abs(size-pos) < nearest_pos:
+                nearest_pos = abs(size-pos)
+                nearest_time = time
+        logger.info(f'{size} maps approximately to {nearest_time}')
 
-        #raise NotImplementedError
+        return nearest_time
 
 
 if __name__ == '__main__':
-    yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_e1_har.json')
+    import time
+    starttime = time.time()
+    yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_combined_e4_har.json')
     example_segment = yt.segments[0]
-    Ranger(config.YOUTUBE_AWAKENING, 'awakening').range_to_time(example_segment)
+    ranger = Ranger(config.YOUTUBE_AWAKENING, 'awakening')
+    for segment in yt.segments:
+        print(ranger.segment_to_playtime(segment, return_itag=True))
+    print(f'time needed: {time.time()-starttime}')

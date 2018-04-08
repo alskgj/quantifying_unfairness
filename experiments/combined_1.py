@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 shaper = Shaper()
 shaper.limit_download(5000)
 
-NAME = 'combined_e3'
+NAME = 'combined_e4'
 
 vimeo_extractor = Vimeo(VIMEO_AWAKENING, shaper=shaper, name="vimeo_" + NAME)
 youtube_extractor = Youtube(YOUTUBE_AWAKENING, shaper=shaper, name="youtube_" + NAME)

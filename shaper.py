@@ -18,9 +18,9 @@ class Shaper:
         # this attribute describes the current limit, 0 means no limit
         self.download_limit = 0
 
-        result = subprocess.run(['whoami'], stdout=subprocess.PIPE)
+        result = subprocess.run(['sudo', 'whoami'], stdout=subprocess.PIPE)
         username = result.stdout.decode('utf-8').strip()
-        print(f'Running as [{username}]')
+        print(f'Running shaper as [{username}]')
         if username != 'root':
             print(f'ERROR: Trying to shape traffic as nonroot, logged in as: [{username}]')
             if not ignore_nonroot:
@@ -41,14 +41,14 @@ class Shaper:
         self.reset_ingress()
 
         self.download_limit = amount
-        subprocess.run(['tc', 'qdisc', 'add', 'dev', self.DEVICE, 'handle', 'ffff:', 'ingress'])
-        subprocess.run(['tc', 'filter', 'add', 'dev', self.DEVICE, 'parent', 'ffff:', 'protocol', 'ip', 'prio', '50',
+        subprocess.run(['sudo', 'tc', 'qdisc', 'add', 'dev', self.DEVICE, 'handle', 'ffff:', 'ingress'])
+        subprocess.run(['sudo', 'tc', 'filter', 'add', 'dev', self.DEVICE, 'parent', 'ffff:', 'protocol', 'ip', 'prio', '50',
                         'u32', 'match', 'ip', 'src', '0.0.0.0/0', 'police', 'rate', f'{amount}kbit', 'burst', '10k',
                         'drop', 'flowid', ':1'])
 
     def reset_ingress(self):
         # todo suppress RTNETLINK answers: Invalid argument if qdisc ingress not here
-        result = subprocess.run(['tc', 'qdisc', 'del', 'dev', self.DEVICE, 'ingress'])
+        subprocess.Popen(['sudo', 'tc', 'qdisc', 'del', 'dev', self.DEVICE, 'ingress'])
         self.download_limit = 0
 
     def __del__(self):

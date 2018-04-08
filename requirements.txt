@@ -1,5 +1,5 @@
 matplotlib
--e git+git://github.com/AutomatedTester/browsermob-proxy-py.git#egg=browsermob-proxy
+-e git://github.com/AutomatedTester/browsermob-proxy-py.git#egg=browsermob-proxy
 selenium
 requests
 jinja2
