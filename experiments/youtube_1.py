@@ -24,7 +24,7 @@ import logging
 from shaper import Shaper
 from extractor import Youtube
 from config import YOUTUBE_AWAKENING
-from plotter import plot_youtube_quality_vs_time
+from postprocessor.plotter import plot_youtube_quality_vs_time
 
 NAME = 'youtube_e1'
 

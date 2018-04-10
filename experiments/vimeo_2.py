@@ -11,7 +11,7 @@ from shaper import Shaper
 from extractor import Vimeo
 from config import VIMEO_AWAKENING
 import logging
-from plotter import plot_vimeo_quality_vs_time
+from postprocessor.plotter import plot_vimeo_quality_vs_time
 import time
 
 logger = logging.getLogger(__name__)

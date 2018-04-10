@@ -10,7 +10,7 @@ First a GET request is made to https://player.vimeo.com/video/<video_id>/config 
 An observed invocation had this format (some arguments where removed to shorten the url): 
 https://player.vimeo.com/video/166807261/config?autopause=1&byline=0&collections=1&default_to_hd=1&outro=nothing
 
-The response to this is json file which holds information about the video to be played.
+The response to this is a json file which holds information about the video to be played.
 Notable:
 - Urls on how to get the 'master.json' file (covered later) for different streaming categories.
 At the time of writting this the categories are 'dash', 'hls' and 'progressive'.

@@ -20,7 +20,7 @@ Results:
 from shaper import Shaper
 from extractor import Vimeo, Youtube
 from config import VIMEO_AWAKENING, YOUTUBE_AWAKENING
-from plotter import plot_combined_bandwith_vs_time
+from postprocessor.plotter import plot_combined_bandwith_vs_time
 import logging
 
 logger = logging.getLogger(__name__)

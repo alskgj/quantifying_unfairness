@@ -1,7 +1,7 @@
 import shaper
 import extractor
 import time
-from har_files import jain
+from postprocessor import jain
 from config import HAR_DIR
 
 s = shaper.Shaper()
@@ -27,7 +27,7 @@ print('bandwith reset')
 # todo try to get crash with chrome too
 # todo write introduction and stuff
 
-vimeo_bytes = jain.bytes(HAR_DIR+'/vimeo.json')
+vimeo_bytes = jain.bytes(HAR_DIR + '/vimeo.json')
 
 print(f'KBytes downloaded by Vimeo:   {round(vimeo_bytes/1000)}')
 print(f'KBytes downloaded by Youtube: {round(youtube_bytes/1000)}')

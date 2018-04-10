@@ -10,11 +10,9 @@
     To provide this functionality the script
     1. Searches for the itag in the segment
     2. Uses `youtube-dl -F url` to download the video if it's not already cached
-    3. Uses `ffprobe -show_packets path` to match the byte range to playtime seconds
-    4. returns a tuple (starttime, endttime)
+    3. Uses `ffprobe -show_packets path` to match the byte range to playtime seconds - this is also cached
+    4. Uses the cached mapping from ffprobe to return (starttime, endttime)
 
-    Done 1 and 2
-    TODO 3 and 4
 
 """
 
@@ -24,10 +22,11 @@ import os
 import subprocess
 
 import logging
-logger = logging.getLogger(__name__)
 import config
 import shlex
 import re
+from json import dump, load
+logger = logging.getLogger(__name__)
 
 
 class Ranger:
@@ -41,9 +40,14 @@ class Ranger:
         """Takes a har entry as input, which is a youtube segment,
         returns a time range."""
         itag = [e for e in segment['request']['queryString'] if e['name'] == 'itag'][0]['value']
-        if not self.is_cached(itag):
+        if not self.video_is_cached(itag):
             logger.warning(f'{self.title} is not cached - downloading it')
             self.download(itag)
+        if not self.metadata_is_cached(itag):
+            logger.warning(f'{self.title} has no cached metadata - processing...')
+            self.create_metadata(itag)
+
+
         byterange = [e for e in segment['request']['queryString'] if e['name'] == 'range'][0]['value']
         start, end = byterange.split('-')
 
@@ -64,13 +68,14 @@ class Ranger:
             logger.error(f'Something went horribly wrong while downloading {self.title} at {self.url}')
             return
 
-    def is_cached(self, itag):
+    def video_is_cached(self, itag):
         """Returns true if caching_dir/name_itag exists"""
         return os.path.exists(os.path.join(CACHE_DIR, f'{self.title}_{itag}'))
 
-    def size_to_time(self, size, itag):
-        size = int(size)
-        path = os.path.join(CACHE_DIR, f'{self.title}_{itag}')
+    def metadata_is_cached(self, itag):
+        return os.path.exists(os.path.join(CACHE_DIR, f'{self.title}_{itag}_metadata.json'))
+
+    def create_metadata(self, itag):
 
         # this pattern matches:
         # pts_time=float - the float is a group
@@ -79,6 +84,7 @@ class Ranger:
         pattern = re.compile('pts_time=(\d+\.\d+)[\s\w=\.\/]*pos=(\d+)')
 
         # for some reason all the output is in err
+        path = os.path.join(CACHE_DIR, f'{self.title}_{itag}')
         process = subprocess.Popen(shlex.split(f'ffprobe -show_packets {path}'),
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.STDOUT)
@@ -93,24 +99,27 @@ class Ranger:
 
                 data += pattern.findall(output)
 
+        dump(data, open(os.path.join(CACHE_DIR, f'{self.title}_{itag}_metadata.json'), 'w'))
+
+    def size_to_time(self, size, itag):
+        size = int(size)
+        data = load(open(os.path.join(CACHE_DIR, f'{self.title}_{itag}_metadata.json')))
+
         nearest_pos = size-int(data[0][1])
         nearest_time = 0
-        for time, pos in data:
-            time,  pos = float(time), int(pos)
+        for pts_time, pos in data:
+            pts_time,  pos = float(pts_time), int(pos)
             if abs(size-pos) < nearest_pos:
                 nearest_pos = abs(size-pos)
-                nearest_time = time
+                nearest_time = pts_time
         logger.info(f'{size} maps approximately to {nearest_time}')
 
         return nearest_time
 
 
 if __name__ == '__main__':
-    import time
-    starttime = time.time()
     yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_combined_e4_har.json')
     example_segment = yt.segments[0]
     ranger = Ranger(config.YOUTUBE_AWAKENING, 'awakening')
     for segment in yt.segments:
         print(ranger.segment_to_playtime(segment, return_itag=True))
-    print(f'time needed: {time.time()-starttime}')

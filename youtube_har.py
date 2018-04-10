@@ -22,6 +22,7 @@ from json import load
 from urllib.parse import parse_qs
 import requests
 import sys
+import re
 
 import logging
 
@@ -32,12 +33,12 @@ logger.setLevel(logging.INFO)
 class YoutubeHar:
     GET_VIDEO_INFO = 'https://www.youtube.com/get_video_info?video_id='
 
-    def __init__(self, har, video_id=None):
+    def __init__(self, har):
         har = load(open(har))
         self._video_info = None  # used to cache requests made to youtube video_info server
 
-        self.id = video_id
         self.entries = har['log']['entries']
+        self.id = self.find_video_id()
 
         # sort out everything without itag
         new_entries = []
@@ -68,6 +69,17 @@ class YoutubeHar:
             print(f'average quality change: {self.average_quality_variations()}')
 
             self.parse_video_info()
+
+        # TODO remove video info parts which sadly don't work
+        logger.info(f'Loaded har. Youtube id {self.id} with {len(self.segments)} segments.')
+
+
+    def find_video_id(self):
+        urls = [entry['request']['url'] for entry in self.entries if 'youtube' in entry['request']['url']]
+        for url in urls:
+            if re.findall(r'watch\?v=(\w+)', url):
+                return re.findall(r'watch\?v=(\w+)', url)[0]
+
 
     @property
     def video_info(self):
@@ -173,8 +185,6 @@ class YoutubeHar:
                 range = self.extract_param(entry, 'range')
             except TypeError:
                 range = 'no range'
-
-            print(range, clen, itag, self.extract_param(entry, 'dur'))
 
         # api: http://www.youtube.com/get video info?video id=
         return NotImplementedError
@@ -291,6 +301,6 @@ class Resolution:
 
 if __name__ == '__main__':
 
-    yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_e1_har.json')
+    yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_combined_e4_har.json')
 
-    print(yt.plot_yt_time())
+    #print(yt.plot_yt_time())

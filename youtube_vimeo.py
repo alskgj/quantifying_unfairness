@@ -1,7 +1,7 @@
 import shaper
 import extractor
 import time
-from har_files import jain
+from postprocessor import jain
 from config import HAR_DIR
 
 s = shaper.Shaper()
@@ -27,8 +27,8 @@ print('bandwith reset')
 for extractor in extractors:
     extractor.join()
 
-vimeo_bytes = jain.bytes(HAR_DIR+'/vimeo.json')
-youtube_bytes = jain.bytes(HAR_DIR+'/youtube_out.json')
+vimeo_bytes = jain.bytes(HAR_DIR + '/vimeo.json')
+youtube_bytes = jain.bytes(HAR_DIR + '/youtube_out.json')
 
 print(f'KBytes downloaded by Vimeo:   {round(vimeo_bytes/1000)}')
 print(f'KBytes downloaded by Youtube: {round(youtube_bytes/1000)}')
