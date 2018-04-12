@@ -1,3 +1,9 @@
 geckodriver
 geckodriver.exe
 .idea/*
+__pycache__/*
+cache/*
+*.log
+extractor/__pycache__/*
+postprocessor/__pycache__/*
+logs/*

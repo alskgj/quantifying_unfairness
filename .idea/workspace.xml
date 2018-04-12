@@ -1,30 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16c4af70-509f-416f-a5e8-a31c5d23658d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/postprocessor/har.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postprocessor/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bachelor_thesis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bachelor_thesis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="16c4af70-509f-416f-a5e8-a31c5d23658d" name="Default" comment="cleanup">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/vimeo/vimeo.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/vimeo/vimeo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/combined_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/combined_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/vimeo_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/vimeo_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/vimeo_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/vimeo_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/youtube_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/youtube_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/force_vimeo_downscaling.py" beforeDir="false" afterPath="$PROJECT_DIR$/force_vimeo_downscaling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/har_files/jain.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessor/plotter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_byterange_to_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_byterange_to_time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/chromemain.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/chrometesting.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/mybrowsermob.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/speed_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_collector/videos.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_har.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_har.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_vimeo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_vimeo.py" afterDir="false" />
     </list>
     <ignored path="C:\Users\zen\PycharmProjects\bachelor_thesis\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +17,7 @@
     <SUITE FILE_PATH="coverage/bachelor_thesis$adaptive_fmt.coverage" NAME="adaptive_fmt Coverage Results" MODIFIED="1518465645955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/snippets" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$startproxy.coverage" NAME="startproxy Coverage Results" MODIFIED="1511712925711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$chromemain.coverage" NAME="chromemain Coverage Results" MODIFIED="1516885462018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube_collector" />
-    <SUITE FILE_PATH="coverage/bachelor_thesis$plotter.coverage" NAME="plotter Coverage Results" MODIFIED="1523303873808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocessor" />
+    <SUITE FILE_PATH="coverage/bachelor_thesis$plotter.coverage" NAME="plotter Coverage Results" MODIFIED="1523491315311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocessor" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$letsvimeo.coverage" NAME="letsvimeo Coverage Results" MODIFIED="1513538290828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$videojoiner.coverage" NAME="videojoiner Coverage Results" MODIFIED="1509804483746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$melissa_proof_of_concept.coverage" NAME="melissa_proof_of_concept Coverage Results" MODIFIED="1518523505093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -46,7 +25,8 @@
     <SUITE FILE_PATH="coverage/bachelor_thesis$vimeo__1_.coverage" NAME="vimeo (1) Coverage Results" MODIFIED="1516048028025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$vimeo_extract_masterjson.coverage" NAME="vimeo_extract_masterjson Coverage Results" MODIFIED="1515019326415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/snippets" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$util.coverage" NAME="util Coverage Results" MODIFIED="1523320370708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocessor" />
-    <SUITE FILE_PATH="coverage/bachelor_thesis$har.coverage" NAME="har Coverage Results" MODIFIED="1523320500275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocessor" />
+    <SUITE FILE_PATH="coverage/bachelor_thesis$har.coverage" NAME="har Coverage Results" MODIFIED="1523488016223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocessor" />
+    <SUITE FILE_PATH="coverage/bachelor_thesis$are_newcomers_penalized_1.coverage" NAME="are_newcomers_penalized_1 Coverage Results" MODIFIED="1523471100941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$speed_test.coverage" NAME="speed_test Coverage Results" MODIFIED="1516815320607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube_collector" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$main.coverage" NAME="main Coverage Results" MODIFIED="1516122272761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$browsermobsnippet2.coverage" NAME="browsermobsnippet2 Coverage Results" MODIFIED="1512312415700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -60,6 +40,7 @@
     <SUITE FILE_PATH="coverage/bachelor_thesis$clstest.coverage" NAME="clstest Coverage Results" MODIFIED="1512380836185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/snippets" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$har_helper.coverage" NAME="har_helper Coverage Results" MODIFIED="1512664209829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$youtube.coverage" NAME="youtube Coverage Results" MODIFIED="1518525341216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/extractor" />
+    <SUITE FILE_PATH="coverage/bachelor_thesis$youtube_first.coverage" NAME="youtube_first Coverage Results" MODIFIED="1523470272139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$vimeohars.coverage" NAME="vimeohars Coverage Results" MODIFIED="1513529779460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/snippets" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$youtube_har.coverage" NAME="youtube_har Coverage Results" MODIFIED="1523318044214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bachelor_thesis$plot_har.coverage" NAME="plot_har Coverage Results" MODIFIED="1512662071275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -101,107 +82,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="har.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/postprocessor/har.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="154" column="11" lean-forward="true" selection-start-line="154" selection-start-column="11" selection-end-line="154" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+                <element signature="e#1322#1424#0" />
+                <element signature="e#1354#1546#0" />
+                <element signature="e#1589#3161#0" />
+                <element signature="e#3234#3422#0" />
+                <element signature="e#3460#4428#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="youtube_byterange_to_time.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/youtube_byterange_to_time.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="106" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="-802">
+              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vimeo_first.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiments/vimeo_first.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youtube_first.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiments/youtube_first.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="e#613#647#0" expanded="true" />
+                <element signature="e#222#247#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/constants.py">
+      <file leaf-file-name="plotter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/postprocessor/plotter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/postprocessor/util.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="498">
+              <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="har.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/postprocessor/har.py">
+      <file leaf-file-name="bandwidth_ytrbuf_newcomers_1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/bandwidth_ytrbuf_newcomers_1.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="bandwidth_newcomers_1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/bandwidth_newcomers_1.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-                <element signature="e#292#657#0" />
-                <element signature="e#125#129#0" />
-                <element signature="e#2773#3020#0" />
-                <element signature="e#1904#2535#0" />
-                <element signature="e#7515#7723#0" />
-                <element signature="e#7785#7879#0" />
-                <element signature="e#11675#11769#0" />
-                <element signature="e#11815#12838#0" />
-                <element signature="e#12895#13882#0" />
-                <element signature="e#13915#14093#0" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/postprocessor/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="youtube_har.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/youtube_har.py">
+      <file leaf-file-name="youtube_newcomers_1_metadata.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/har_files/youtube_newcomers_1_metadata.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="29" selection-end-column="29" />
-              <folding>
-                <element signature="e#480#513#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vimeo_har.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vimeo_har.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4035">
-              <caret line="295" column="19" selection-start-line="295" selection-start-column="19" selection-end-line="295" selection-end-column="99" />
-              <folding>
-                <element signature="e#4297#5236#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vimeo.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/vimeo/vimeo.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="180">
-                <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="combined_1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiments/combined_1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="405">
+              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -217,11 +189,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>content-type</find>
-      <find>244</find>
-      <find>status</find>
-      <find>url</find>
-      <find>range</find>
       <find>range&quot;</find>
       <find>mani</find>
       <find>1559</find>
@@ -247,6 +214,11 @@
       <find>parse</find>
       <find>print</find>
       <find>find</find>
+      <find>join</find>
+      <find>path</find>
+      <find>bandwith</find>
+      <find>second</find>
+      <find>1024</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,13 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snippets/vimeo_extract_masterjson.py" />
-        <option value="$PROJECT_DIR$/snippets/master.json" />
-        <option value="$PROJECT_DIR$/snippets/comparytandvim.py" />
-        <option value="$PROJECT_DIR$/melissa_snippets/compare.py" />
-        <option value="$PROJECT_DIR$/snippets/vimeostuff.html" />
-        <option value="$PROJECT_DIR$/snippets/vimeo.py" />
-        <option value="$PROJECT_DIR$/letsvimeo.py" />
         <option value="$PROJECT_DIR$/har_helper.py" />
         <option value="$PROJECT_DIR$/har_files/get_video_info" />
         <option value="$PROJECT_DIR$/vimeo.py" />
@@ -297,16 +262,23 @@
         <option value="$PROJECT_DIR$/shaper.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/experiments/combined_1.py" />
-        <option value="$PROJECT_DIR$/youtube_byterange_to_time.py" />
         <option value="$PROJECT_DIR$/youtube_collector/main.py" />
         <option value="$PROJECT_DIR$/docs/vimeo/vimeo.md" />
         <option value="$PROJECT_DIR$/har_files/jain.py" />
+        <option value="$PROJECT_DIR$/har_files/youtube_newcomers_1_metadata.json" />
+        <option value="$PROJECT_DIR$/har_files/vimeo_newcomers_1_metadata.json" />
         <option value="$PROJECT_DIR$/youtube_har.py" />
+        <option value="$PROJECT_DIR$/vimeo_har.py" />
+        <option value="$PROJECT_DIR$/experiments/are_newcomers_penalized_1.py" />
+        <option value="$PROJECT_DIR$/experiments/youtube_first.py" />
+        <option value="$PROJECT_DIR$/experiments/vimeo_first.py" />
         <option value="$PROJECT_DIR$/postprocessor/__init__.py" />
         <option value="$PROJECT_DIR$/postprocessor/util.py" />
+        <option value="$PROJECT_DIR$/youtube_byterange_to_time.py" />
         <option value="$PROJECT_DIR$/postprocessor/har.py" />
+        <option value="$PROJECT_DIR$/postprocessor/plotter.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -317,10 +289,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1636" />
-    <option name="y" value="27" />
-    <option name="width" value="1910" />
-    <option name="height" value="741" />
+    <option name="x" value="1680" />
+    <option name="y" value="25" />
+    <option name="width" value="1920" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -336,32 +308,6 @@
               <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="vimeo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
-              <item name="extractor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
-              <item name="har_files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bachelor_thesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bachelor_thesis" type="462c0819:PsiDirectoryNode" />
-              <item name="postprocessor" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -369,7 +315,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="har&#9;FILE&#9;file:///home/nen/PycharmProjects/bachelor_thesis/postprocessor/har.py&#10;youtubehar&#9;FILE&#9;file:///home/nen/PycharmProjects/bachelor_thesis/youtube_har.py&#10;jain&#9;null&#9;null&#10;cleaner&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="har&#9;FILE&#9;file:///home/nen/PycharmProjects/bachelor_thesis/postprocessor/har.py&#10;config&#9;FILE&#9;file:///home/nen/PycharmProjects/bachelor_thesis/config.py&#10;youtubehar&#9;FILE&#9;file:///home/nen/PycharmProjects/bachelor_thesis/youtube_har.py&#10;jain&#9;null&#9;null&#10;cleaner&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Python" />
     <property name="last_opened_file_path" value="$USER_HOME$/.venvs" />
@@ -377,19 +323,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/experiments" />
+      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\join_this" />
+      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\youtube_collector" />
+      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\docs" />
+      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\har_files" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/postprocessor" />
       <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\docs" />
       <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\har_files" />
       <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis" />
       <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\snippets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\join_this" />
-      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\youtube_collector" />
-      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\docs" />
-      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis\har_files" />
-      <recent name="C:\Users\zen\PycharmProjects\bachelor_thesis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -404,7 +350,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.har">
+  <component name="RunManager" selected="Python.plotter">
+    <configuration name="are_newcomers_penalized_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bachelor_thesis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/vimeo_first.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="har" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bachelor_thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -419,25 +384,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/postprocessor/har.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="jain" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bachelor_thesis" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/har_files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/postprocessor/jain.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -481,7 +427,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="youtube_har" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="youtube_first" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bachelor_thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -489,31 +435,31 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtube_har.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/youtube_first.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.plotter" />
-      <item itemvalue="Python.jain" />
       <item itemvalue="Python.util" />
-      <item itemvalue="Python.youtube_har" />
       <item itemvalue="Python.har" />
+      <item itemvalue="Python.are_newcomers_penalized_1" />
+      <item itemvalue="Python.plotter" />
+      <item itemvalue="Python.youtube_first" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.har" />
-        <item itemvalue="Python.util" />
-        <item itemvalue="Python.youtube_har" />
-        <item itemvalue="Python.jain" />
         <item itemvalue="Python.plotter" />
+        <item itemvalue="Python.har" />
+        <item itemvalue="Python.are_newcomers_penalized_1" />
+        <item itemvalue="Python.youtube_first" />
+        <item itemvalue="Python.util" />
       </list>
     </recent_temporary>
   </component>
@@ -584,27 +530,41 @@
       <option name="project" value="LOCAL" />
       <updated>1523231894493</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="har youtube nicer, jain">
+      <created>1523321725014</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1523321725014</updated>
+    </task>
+    <task id="LOCAL-00011" summary="moved and improved har, optimized imports, typos, plotter, experiment: newcomers penalized">
+      <created>1523492550998</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523492550998</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="25" width="1920" height="990" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4216418" side_tool="true" weight="0.44637054" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.4424307" weight="0.4084014" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.57835823" weight="0.27187866" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.31738624" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4873016" visible="true" weight="0.19156884" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.57835823" weight="0.25320888" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4865811" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4873016" visible="true" weight="0.20170757" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914712" weight="0.32905483" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5126984" side_tool="true" weight="0.18710022" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4936034" weight="0.3997833" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4936034" weight="0.2578763" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -612,27 +572,28 @@
       <window_info anchor="right" id="Data View" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914712" weight="0.32861805" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Project" order="0" sideWeight="0.4873016" visible="true" weight="0.1663113" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.57835823" visible="true" weight="0.44637054" />
-      <window_info id="Favorites" order="2" sideWeight="0.5126984" side_tool="true" weight="0.18710022" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="4" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.4424307" weight="0.23618636" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914712" weight="0.32936078" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.31852654" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4216418" side_tool="true" weight="0.44637054" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4936034" weight="0.3997833" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.4424307" weight="0.23618636" />
+      <window_info id="Favorites" order="2" sideWeight="0.5126984" side_tool="true" weight="0.18710022" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +610,9 @@
     <MESSAGE value="more work on youtube parsing, getvideoinfo and manifest examples" />
     <MESSAGE value="browsermobproxy is possibly broken" />
     <MESSAGE value="yt byterange decoder finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="yt byterange decoder finished" />
+    <MESSAGE value="har youtube nicer, jain" />
+    <MESSAGE value="moved and improved har, optimized imports, typos, plotter, experiment: newcomers penalized" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved and improved har, optimized imports, typos, plotter, experiment: newcomers penalized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,7 +628,7 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -674,43 +637,56 @@
       </configuration>
     </watches-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>re.search(r'video/([\d\w]+)', url)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>url</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>re.match(r'video/([\d\w]+)', url)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>urls</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>youtube_start-vimeo_start</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>youtube_start</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>vhar.segments[0]['startedDateTime']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>vhar.segments[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>yhar.segments[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/experiments/combined_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/postprocessor/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youtube_collector/hs_err_pid14544.log" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/xmlamiv.py" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/thomaaa.py" />
-    <entry file="file://$PROJECT_DIR$/extractor/bmp.log" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/dailyprogrammer.py" />
-    <entry file="file://$PROJECT_DIR$/melissa_snippets_py27/compare.py" />
-    <entry file="file://$PROJECT_DIR$/snippets/running two experiments in parallel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/adaptive_fmt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="764" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="764" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/youtube_dl-2018.2.11-py3.6.egg/youtube_dl/extractor/__init__.py" />
-    <entry file="file://C:/Python36/Lib/site-packages/youtube_dl-2018.2.11-py3.6.egg/youtube_dl/__init__.py" />
     <entry file="file://C:/Python36/Lib/site-packages/youtube_dl-2018.2.11-py3.6.egg/youtube_dl/YoutubeDL.py" />
     <entry file="file://C:/Python36/Lib/site-packages/youtube_dl-2018.2.11-py3.6.egg/youtube_dl/utils.py" />
     <entry file="file://C:/Python36/Lib/site-packages/youtube_dl-2018.2.11-py3.6.egg/youtube_dl/extractor/common.py" />
@@ -754,31 +730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snippets/signature_research.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -815,13 +770,6 @@
         <state relative-caret-position="-12711" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/postprocessor/plotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="160" column="44" lean-forward="true" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youtube_collector/mybrowsermob.py" />
     <entry file="file://$PROJECT_DIR$/youtube_collector/speed_test.py" />
     <entry file="file://$PROJECT_DIR$/youtube_collector/chromemain.py" />
@@ -837,40 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youtube_byterange_to_time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-          <folding>
-            <element signature="e#613#647#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vimeo_har.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4035">
-          <caret line="295" column="19" selection-start-line="295" selection-start-column="19" selection-end-line="295" selection-end-column="99" />
-          <folding>
-            <element signature="e#4297#5236#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youtube_har.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#480#513#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -881,46 +799,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extractor/baseextractor.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/postprocessor/jain.py">
+    <entry file="file://$PROJECT_DIR$/postprocessor/jain.py" />
+    <entry file="file://$PROJECT_DIR$/snippets/mng_flask.py" />
+    <entry file="file://$PROJECT_DIR$/snippets/running two experiments in parallel.py" />
+    <entry file="file://$PROJECT_DIR$/snippets/display_ranges.py" />
+    <entry file="file://$PROJECT_DIR$/snippets/mulaxes.py" />
+    <entry file="file://$PROJECT_DIR$/snippets/signature_research.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="465">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/har_files/vimeo_newcomers_1_metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="1022" column="47" selection-start-line="1022" selection-start-column="43" selection-end-line="1022" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postprocessor/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youtube_har.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="291" selection-start-line="291" selection-end-line="293" selection-end-column="57" />
+          <folding>
+            <element signature="e#480#513#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/postprocessor/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/postprocessor/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vimeo_har.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="287" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/har_files/youtube_newcomers_1_metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/vimeo_first.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/youtube_first.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#222#247#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.venvs/bt/lib/python3.6/site-packages/pygal/graph/xy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/postprocessor/har.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
+        <state relative-caret-position="347">
+          <caret line="154" column="11" lean-forward="true" selection-start-line="154" selection-start-column="11" selection-end-line="154" selection-end-column="11" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
-            <element signature="e#292#657#0" />
-            <element signature="e#125#129#0" />
-            <element signature="e#2773#3020#0" />
-            <element signature="e#1904#2535#0" />
-            <element signature="e#7515#7723#0" />
-            <element signature="e#7785#7879#0" />
-            <element signature="e#11675#11769#0" />
-            <element signature="e#11815#12838#0" />
-            <element signature="e#12895#13882#0" />
-            <element signature="e#13915#14093#0" />
+            <element signature="e#1322#1424#0" />
+            <element signature="e#1354#1546#0" />
+            <element signature="e#1589#3161#0" />
+            <element signature="e#3234#3422#0" />
+            <element signature="e#3460#4428#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youtube_byterange_to_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-802">
+          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/bandwidth_ytrbuf_newcomers_1.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/bandwidth_ytrbuf_newcomers_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postprocessor/plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/bandwidth_newcomers_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
