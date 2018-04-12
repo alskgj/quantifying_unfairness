@@ -3,7 +3,6 @@ from config import OUTPUT_DIR, HAR_DIR
 from os.path import join
 
 import pygal
-from pygal.style import CleanStyle, DarkStyle, LightColorizedStyle, RedBlueStyle
 import logging
 
 # svg to pdf with:
@@ -11,7 +10,7 @@ import logging
 
 
 from vimeo_har import VimeoHar
-from youtube_har import YoutubeHar
+from postprocessor import YoutubeHar
 
 logger = logging.getLogger(__name__)
 
@@ -55,17 +54,62 @@ def plot_combined_mb_vs_time(name):
     print(f'Created plot at: {path}.png')
 
 
-def plot_combined_bandwith_vs_time(name, n=3):
-    vimeo_data = VimeoHar(join(HAR_DIR, 'vimeo_'+name+'_har.json')).plot_bandwith_time(n)
-    youtube_data = YoutubeHar(join(HAR_DIR, 'youtube_'+name+'_har.json')).plot_bandwith_time(n)
+def plot_combined_bandwidth_vs_time(name, n=3):
+    vimeohar = VimeoHar(join(HAR_DIR, 'vimeo_'+name+'_har.json'))
+    youtubehar = YoutubeHar(join(HAR_DIR, 'youtube_'+name+'_har.json'))
+    vimeo_data, vimeo_start = vimeohar.plot_bandwidth_time(n), vimeohar.starttime()
+    youtube_data, youtube_start = youtubehar.plot_bandwidth_time(n), youtubehar.starttime()
+
+    # shift data to the right if playback wasn't started at the same time
+    if youtube_start > vimeo_start:
+        youtube_data = [(time+(youtube_start-vimeo_start).total_seconds(), br) for time, br in youtube_data]
+    else:
+        vimeo_data = [(time+(vimeo_start-youtube_start).total_seconds(), br) for time, br in vimeo_data]
 
     # generel setup
-    line_chart = pygal.XY(legend_at_bottom=True, stroke_style={'width': 5})
+    line_chart = pygal.XY(legend_at_bottom=True, stroke_style={'width': 5},
+                          x_title='Time (sec)', y_title='Bandwidth (Mbit/s)',)
 
     line_chart.add('Vimeo', vimeo_data)
     line_chart.add('Youtube', youtube_data)
 
-    path = join(OUTPUT_DIR, 'bandwith_'+name)
+    path = join(OUTPUT_DIR, 'bandwidth_'+name)
+    line_chart.render_to_file(path + '.svg')
+    line_chart.render_to_png(path + '.png', dpi=720)
+    logger.info(f'Created plot at: {path}.png')
+    print(f'Created plot at: {path}.png')
+
+
+def plot_combined_bandwidth_vs_time_add_youtube_rbuf(name, n=3):
+    vimeohar = VimeoHar(join(HAR_DIR, 'vimeo_'+name+'_har.json'))
+    youtubehar = YoutubeHar(join(HAR_DIR, 'youtube_'+name+'_har.json'))
+    vimeo_data, vimeo_start = vimeohar.plot_bandwidth_time(n), vimeohar.starttime()
+    youtube_data, youtube_start = youtubehar.plot_bandwidth_time(n), youtubehar.starttime()
+    youtube_rbuf = youtubehar.plot_rbuf_time()
+
+    # shift data to the right if playback wasn't started at the same time
+    if youtube_start > vimeo_start:
+        youtube_data = [(time+(youtube_start-vimeo_start).total_seconds(), br) for time, br in youtube_data]
+        youtube_rbuf = [(time+(youtube_start-vimeo_start).total_seconds(), rbuf) for time, rbuf in youtube_rbuf]
+    else:
+        vimeo_data = [(time+(vimeo_start-youtube_start).total_seconds(), br) for time, br in vimeo_data]
+
+    last_timestamp = max(vimeo_data[-1][0], youtube_data[-1][0])
+    # generel setup
+    line_chart = pygal.XY(legend_at_bottom=True,
+                          stroke_style={'width': 5}, range=(0, 5), secondary_range=(0, 50),
+                          xrange=(0, last_timestamp+10),
+                          x_title='Time (sec)', y_title='Bandwidth (Mbit/s)',
+                          secondary_title='Buffer (Mbit)')
+    print(youtube_rbuf)
+    print(last_timestamp)
+
+
+    line_chart.add('Vimeo', vimeo_data)
+    line_chart.add('Youtube', youtube_data)
+    line_chart.add('Youtube Buffer', youtube_rbuf, secondary=True, colour='black')
+
+    path = join(OUTPUT_DIR, 'bandwidth_ytrbuf_'+name)
     line_chart.render_to_file(path + '.svg')
     line_chart.render_to_png(path + '.png', dpi=720)
     logger.info(f'Created plot at: {path}.png')
@@ -165,4 +209,6 @@ def combined_plot(name, metapath, harpath):
 
 if __name__ == '__main__':
     # plot_vimeo_quality_vs_time('vimeo_e2')
-    plot_combined_bandwith_vs_time('combined_e1', n=15)
+    NAME = 'newcomers_1'
+    plot_combined_bandwidth_vs_time_add_youtube_rbuf(NAME, n=15)
+    plot_combined_bandwidth_vs_time(NAME, n=15)

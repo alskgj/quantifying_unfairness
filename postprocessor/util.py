@@ -1,5 +1,4 @@
 import logging
-from postprocessor.har import HarBase, YoutubeHar
 
 logger = logging.getLogger(__name__)
 

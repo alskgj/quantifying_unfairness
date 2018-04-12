@@ -47,7 +47,6 @@ class Ranger:
             logger.warning(f'{self.title} has no cached metadata - processing...')
             self.create_metadata(itag)
 
-
         byterange = [e for e in segment['request']['queryString'] if e['name'] == 'range'][0]['value']
         start, end = byterange.split('-')
 

@@ -119,7 +119,7 @@ class VimeoHar:
 
         return list(zip(times, aggregate_sizes))
 
-    def plot_bandwith_time(self, n=3):
+    def plot_bandwidth_time(self, n=3):
         """ Returns the bandwith in an easily plottable way,
         n seconds moving average, megabits/s
 
@@ -283,6 +283,10 @@ class VimeoHar:
         return sum([e['response']['bodySize'] for e in self.entries if e['response']['bodySize'] > 0])
 
 
+    def starttime(self):
+        return parse(self.segments[0]['startedDateTime'])
+
+
 class Resolution:
     def __init__(self, width, height):
         self.width, self.height = width, height
@@ -294,4 +298,4 @@ class Resolution:
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     har = VimeoHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/vimeo_combined_e1_har.json')
-    print(har.plot_bandwith_time())
+    print(har.plot_bandwidth_time())

@@ -268,7 +268,7 @@ class YoutubeHar:
 
         return list(zip(times, aggregate_sizes))
 
-    def plot_bandwith_time(self, n=3):
+    def plot_bandwidth_time(self, n=3):
         """ Returns the bandwith in an easily plottable way,
         n seconds moving average, megabits/s
 
@@ -290,6 +290,8 @@ class YoutubeHar:
             moving_sizes.append(sum(chunks)/n*8) # divide by n since it's an average, multiply by 8 to get bits
         return list(enumerate(moving_sizes))
 
+    def starttime(self):
+        return parse(self.segments[0]['startedDateTime'])
 
 class Resolution:
     def __init__(self, width, height):
