@@ -17,19 +17,18 @@ Results:
 
 from shaper import Shaper
 from extractor import Vimeo, Youtube
-from config import VIMEO_AWAKENING, YOUTUBE_AWAKENING
-from postprocessor.plotter import *
+from config import VIMEO_HOUDINI, YOUTUBE_HOUDINI
 import logging
 
 logger = logging.getLogger(__name__)
 
 shaper = Shaper()
-shaper.limit_download(5000)
+shaper.limit_download(3000)
 
-NAME = 'combined_e6'
+NAME = 'combined_long_e2'
 
-vimeo_extractor = Vimeo(VIMEO_AWAKENING, shaper=shaper, name="vimeo_" + NAME)
-youtube_extractor = Youtube(YOUTUBE_AWAKENING, shaper=shaper, name="youtube_" + NAME)
+vimeo_extractor = Vimeo(VIMEO_HOUDINI, shaper=shaper, name="vimeo_" + NAME)
+youtube_extractor = Youtube(YOUTUBE_HOUDINI, shaper=shaper, name="youtube_" + NAME)
 
 vimeo_extractor.start()
 youtube_extractor.start()
@@ -38,9 +37,3 @@ youtube_extractor.join()
 
 shaper.reset_ingress()
 logger.info(f'Experiment: {NAME} finished')
-
-plot_combined_mb_vs_time(NAME)
-plot_combined_bandwidth_vs_time(NAME, n=15)
-plot_combined_bandwidth_vs_time_add_youtube_rbuf(NAME, n=15)
-plot_combined_quality(NAME)
-

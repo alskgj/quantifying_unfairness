@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 shaper = Shaper()
 shaper.limit_download(5000)
 
-NAME = 'combined_e6'
+NAME = 'combined_e7'
 
 vimeo_extractor = Vimeo(VIMEO_AWAKENING, shaper=shaper, name="vimeo_" + NAME)
 youtube_extractor = Youtube(YOUTUBE_AWAKENING, shaper=shaper, name="youtube_" + NAME)
@@ -39,8 +39,6 @@ youtube_extractor.join()
 shaper.reset_ingress()
 logger.info(f'Experiment: {NAME} finished')
 
-plot_combined_mb_vs_time(NAME)
-plot_combined_bandwidth_vs_time(NAME, n=15)
-plot_combined_bandwidth_vs_time_add_youtube_rbuf(NAME, n=15)
-plot_combined_quality(NAME)
-
+plot_combined(NAME, primary='mb')
+plot_combined(NAME, primary='bandwidth')
+plot_combined(NAME, primary='quality')

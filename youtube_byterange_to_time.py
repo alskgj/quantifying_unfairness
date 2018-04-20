@@ -16,7 +16,7 @@
 
 """
 
-from youtube_har import YoutubeHar
+from postprocessor.har import YoutubeHar
 from config import CACHE_DIR
 import os
 import subprocess

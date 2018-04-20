@@ -7,3 +7,4 @@ cache/*
 extractor/__pycache__/*
 postprocessor/__pycache__/*
 logs/*
+chromedriver

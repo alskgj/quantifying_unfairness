@@ -15,15 +15,21 @@
             var paused = false;
             var ended = false;
             var quality = [];
-            var progress;
             var rebuffering = false;
+
+            var current_time = 0;
+            var progress = 0;
 
             player.on('progress', function (data) {
                 Promise.all([player.getVideoWidth(), player.getVideoHeight()]).then(function(dimensions) {
                     quality = dimensions;
                 });
-                progress = data;
+                progress = data['seconds'];
             });
+            player.on('timeupdate', function (data) {
+                current_time = data['seconds'];
+            });
+
 
             player.on('pause', function() {
                 console.log('paused!');

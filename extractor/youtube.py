@@ -36,6 +36,7 @@ class Youtube(BaseExtractor):
 
     # https://developers.google.com/youtube/iframe_api_reference#Playback_quality
     QUALITY = {
+        'tiny': [256, 144],
         'small': [320, 240],
         'medium': [640, 360],
         'large': [850, 480],
@@ -68,18 +69,19 @@ class Youtube(BaseExtractor):
         self.driver.get(self.url)
 
         data = []
-        starttime = time.time()
         last_datapoint = {}
 
         # waiting for video to start
         while self.status() == self.VIDEO_UNSTARTED:
             time.sleep(1)
+        starttime = time.time()
 
         while self.status() not in [self.VIDEO_ENDED, self.VIDEO_PAUSED]:
             datapoint = dict()
             datapoint['status'] = self.VIDEO_STATES[self.status()]
             datapoint['quality'] = self.quality()
             datapoint['total_dl_bandwith'] = self.shaper.download_limit
+            datapoint['rebuffering'] = self.status() == self.VIDEO_REBUFFERING
             if last_datapoint != datapoint:
                 last_datapoint = datapoint.copy()
                 datapoint['time'] = time.time()-starttime
@@ -93,6 +95,7 @@ class Youtube(BaseExtractor):
         datapoint['status'] = self.VIDEO_STATES[self.status()]
         datapoint['quality'] = self.quality()  # TODO get current quality
         datapoint['time'] = time.time()-starttime
+        datapoint['rebuffering'] = self.status() == self.VIDEO_REBUFFERING
         data.append(datapoint)
 
         # pprint(data)

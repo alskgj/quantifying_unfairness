@@ -32,10 +32,11 @@ class Vimeo(BaseExtractor):
         self.driver.get(self.url)
         starttime = time.time()
 
-        # wait until video is paused
+        # wait until video is paused or video ended
         metadata = []
         last_quality = []
         last_rebuffering = False
+        buffer_developments = []
         while True:
             time.sleep(1)
 
@@ -46,6 +47,11 @@ class Vimeo(BaseExtractor):
             ended = self.driver.execute_script('return ended;')
             new_rebuffering = self.driver.execute_script('return rebuffering;')
             new_quality = self.driver.execute_script('return quality;')
+            current_time = self.driver.execute_script('return current_time;')
+            buffer = self.driver.execute_script('return progress;') - current_time
+            buffer_developments.append({'time': round(time.time() - starttime, 2),
+                                        'buffer': buffer})
+
             if paused or ended:
                 break
 
@@ -56,8 +62,10 @@ class Vimeo(BaseExtractor):
                 metadata.append({
                     'time': round(current_time, 2),
                     'quality': new_quality,
-                    'bandwith': self.shaper.download_limit,
-                    'rebuffering': new_rebuffering
+                    'bandwidth': self.shaper.download_limit,
+                    'rebuffering': new_rebuffering,
+                    'current_time': current_time,
+                    'buffer': buffer
                 })
                 last_quality = new_quality
 
@@ -65,7 +73,8 @@ class Vimeo(BaseExtractor):
         metadata.append({
             'time': round(time.time() - starttime, 2),
             'quality': last_quality,
-            'bandwith': self.shaper.download_limit
+            'bandwidth': self.shaper.download_limit,
+            'rebuffering': self.driver.execute_script('return rebuffering;')
         })
 
         # playback has ended - save har and metadata
@@ -73,6 +82,11 @@ class Vimeo(BaseExtractor):
         with open(filename, 'w+') as fo:
             dump(metadata, fo)
         logger.info(f'dumped metadata file to: {filename}')
+
+        filename = f'{HAR_DIR}/{self.experiment_name}_bufferdata.json'
+        with open(filename, 'w+') as fo:
+            dump(buffer_developments, fo)
+        logger.info(f'dumped buffer file to: {filename}')
 
         if self.capture_har:
             # save the har

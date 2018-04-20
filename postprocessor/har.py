@@ -293,6 +293,9 @@ class VimeoHar(HarBase):
     def starttime(self):
         return parse(self.segments[0]['startedDateTime'])
 
+    def buffer_times(self):
+        """Gives an estimate of the available buffer at the client for each second of playback"""
+
 
 class YoutubeHar(HarBase):
     """
@@ -357,8 +360,8 @@ class YoutubeHar(HarBase):
         except IndexError:
             return None
 
-    def plot_yt_time(self):
-        """ To easily plot the bandwidth against time we need to convert it to the right format.
+    def plot_mb_time(self):
+        """ To easily plot the data downloaded against time we need to convert it to the right format.
         Sizeofpacket is in megabytes
         :return: [(0, 0), (t1, sizeofpacket1), (t2, sizeofpacket1+sizeofpacket2), ...]
         """
@@ -406,7 +409,7 @@ class YoutubeHar(HarBase):
 
     def plot_rbuf_time(self):
         """Returns the current rbuf in an easily plottable way,
-        megabit/s (I think that youtubes rbuf gives result in kb/s"""
+        megabit/s"""
 
         times = self._segmenttime()
         rbuf = [round(int(self.extract_param(segment, 'rbuf'))/1000, 2) for segment in self.segments]
@@ -429,7 +432,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     yt = YoutubeHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/youtube_combined_e4_har.json')
     vime = VimeoHar('/home/nen/PycharmProjects/bachelor_thesis/har_files/vimeo_combined_e4_har.json')
-    print(util.jain([vime, yt]))
+    # print(util.jain([vime, yt]))
 
-    print(yt.plot_rbuf_time())
-    print(yt.plot_bandwidth_time())
+    # print(yt.plot_rbuf_time())
+    # print(yt.plot_bandwidth_time())

@@ -26,6 +26,12 @@ NETWORK_INTERFACE = 'eno1'
 YOUTUBE_AWAKENING = 'https://www.youtube.com/watch?v=6D-A6CL3Pv8'
 VIMEO_AWAKENING = 'https://vimeo.com/93003441'
 
+# Card Draw & Card Advantage | The Command Zone #127 (55min)
+YOUTUBE_LONG = 'https://www.youtube.com/watch?v=w0nbemVmjDI'
+
+# mixtrn.com - Houdini Engine to Unreal Engine Workflow Promo 11:31
+YOUTUBE_HOUDINI = 'https://www.youtube.com/watch?v=B7RrPMvLFqI'
+VIMEO_HOUDINI = 'https://vimeo.com/255482875'
 
 for path in [HAR_DIR, OUTPUT_DIR, LOG_DIR, CACHE_DIR]:
     if not os.path.exists(path):
