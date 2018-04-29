@@ -4,3 +4,7 @@ selenium
 requests
 jinja2
 pygal
+lxml
+cairosvg
+tinycss
+cssselect

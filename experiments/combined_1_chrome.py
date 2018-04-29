@@ -7,12 +7,7 @@ combined experiment 1
 3. Display results as graph: bandwith over time
 4. Try to explain results
 
-
-Results:
-1.
-2.
-3.
-4.
+-> Using chrome
 """
 
 from shaper import Shaper

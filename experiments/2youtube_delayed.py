@@ -1,18 +1,7 @@
 """
-Issue: BT-5
-
-combined experiment 1
-1. Limit bandwith to 5k
-2. Record har file
-3. Display results as graph: bandwith over time
-4. Try to explain results
-
-
-Results:
-1.
-2.
-3.
-4.
+Running two YouTube instances
+Download speed limited to 4k
+Delayed by 30 seconds
 """
 
 from shaper import Shaper
@@ -39,7 +28,7 @@ youtube_extractor1.start()
 time.sleep(30)
 
 youtube_extractor2.start()
-# stopped at 19:00
+
 youtube_extractor1.join()
 youtube_extractor2.join()
 

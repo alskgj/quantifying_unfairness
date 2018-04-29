@@ -4,7 +4,10 @@ from datetime import timedelta
 from json import load
 from json import loads
 import re
-from postprocessor import util
+from scipy.interpolate import interp1d
+from scipy.stats import linregress
+from numpy import linspace
+from scipy.interpolate import spline
 
 import logging
 
@@ -149,6 +152,18 @@ class VimeoHar(HarBase):
             chunks = [size for time, size in times_with_sizes if i <= time <= i+n-1]
             moving_sizes.append(sum(chunks)/n*8)  # divide by n since it's an average, multiply by 8 to get bits
         return list(enumerate(moving_sizes))
+
+    def plot_bandwidth_interpolated(self, n=50):
+        """To get smooth data we just use n points instead of the actual number
+        of data points"""
+        bandwidth = self.plot_bandwidth_time(n=15)
+        times = [element[0] for element in bandwidth]
+        sizes = [element[1] for element in bandwidth]
+
+        new_points = linspace(0, times[-1], n)
+        spliner = spline(times, sizes, new_points)
+
+        return list(zip(new_points, spliner))
 
     def masterjson(self):
         """Returns the master.json file. Only exists in Vimeo Har files.
@@ -389,7 +404,7 @@ class YoutubeHar(HarBase):
         times = [parse(self.extract_header(segment, 'Date')) for segment in self.segments]
         starttime = times[0]
         # converts all those datetimes into seconds from start, so now we have an int list [0, ...]
-        return [(time - starttime).total_seconds() for time in times]
+        return [int((time - starttime).total_seconds()) for time in times]
 
     def plot_bandwidth_time(self, n=3):
         """ Returns the bandwidth in an easily plottable way,
@@ -406,6 +421,18 @@ class YoutubeHar(HarBase):
             chunks = [size for time, size in times_with_sizes if i <= time <= i + n - 1]
             moving_sizes.append(sum(chunks) / n * 8)  # divide by n since it's an average, multiply by 8 to get bits
         return list(enumerate(moving_sizes))
+
+    def plot_bandwidth_interpolated(self, n=50):
+        """To get smooth data we just use n points instead of the actual number
+        of data points"""
+        bandwidth = self.plot_bandwidth_time(n=15)
+        times = [element[0] for element in bandwidth]
+        sizes = [element[1] for element in bandwidth]
+
+        new_points = linspace(0, times[-1], n)
+        spliner = spline(times, sizes, new_points)
+
+        return list(zip(new_points, spliner))
 
     def plot_rbuf_time(self):
         """Returns the current rbuf in an easily plottable way,

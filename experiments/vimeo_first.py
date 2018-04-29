@@ -7,14 +7,6 @@ newcommers experiment 1
 2. Record har files
 3. Display results as graph: bandwith over time
 4. Try to explain results
-
-TODO: read timings from har file
-
-Results:
-1.
-2.
-3.
-4.
 """
 
 from shaper import Shaper

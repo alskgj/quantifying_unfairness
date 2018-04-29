@@ -5,14 +5,7 @@ combined experiment 1
 1. Limit bandwith to 5k
 2. Record har file
 3. Display results as graph: bandwith over time
-4. Try to explain results
-
-
-Results:
-1.
-2.
-3.
-4.
+4. Eexplain results
 """
 
 from shaper import Shaper

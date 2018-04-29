@@ -284,7 +284,7 @@ def plot_combined(NAME, primary, secondary=None, annotated=False, annotate=True,
     """
 
     # sanity check
-    args = ['mb', 'bandwidth', 'quality', 'buffer']
+    args = ['mb', 'bandwidth', 'quality', 'buffer', 'interpolated']
     if primary not in args:
         print(f'Supplied unknown argument {primary}. Expected one of {args}')
         raise NotImplementedError
@@ -301,7 +301,11 @@ def plot_combined(NAME, primary, secondary=None, annotated=False, annotate=True,
 
     # generel setup
     line_chart = pygal.XY(legend_at_bottom=True,
-                          x_title='Time (sec)')
+                          x_title='Time (sec)',
+                          dots_size=0,
+                          stroke_style={'width': 3})
+    if primary in ['bandwidth', 'interpolated'] and secondary == 'buffer':
+        line_chart.secondary_range = (0, 50)
 
     # for each option we load the data and generate the legend
     if primary == 'mb':
@@ -326,6 +330,15 @@ def plot_combined(NAME, primary, secondary=None, annotated=False, annotate=True,
         youtube_data = youtube_har.plot_rbuf_time()
         line_chart.y_title = 'Buffer available (Seconds)'
         statistic = 'Buffer (Seconds)'
+    elif primary == 'interpolated':
+        vimeo_data = vimeo_har.plot_bandwidth_interpolated()
+        youtube_data = youtube_har.plot_bandwidth_interpolated()
+        line_chart.y_title = 'Bandwidth (Mbit/s)'
+        statistic = 'Bandwidth'
+        line_chart.range = (0, 5)
+        line_chart.interpolate = 'cubic'
+
+
     else:
         raise NotImplementedError(f'Primary parameter {primary} not supported')
 
@@ -336,8 +349,10 @@ def plot_combined(NAME, primary, secondary=None, annotated=False, annotate=True,
                                       annotate=annotate,
                                       line_chart=line_chart)
     # add primary data
-    line_chart.add(f'Vimeo ({statistic})', vimeo_data)
-    line_chart.add(f'Youtube ({statistic})', youtube_data)
+    # line_chart.add(f'Vimeo ({statistic})', vimeo_data)
+    # line_chart.add(f'Youtube ({statistic})', youtube_data)
+    line_chart.add(f'Vimeo', vimeo_data)
+    line_chart.add(f'Youtube', youtube_data)
 
     # secondary
     # for each option we load the data and generate the legend
@@ -366,7 +381,7 @@ def plot_combined(NAME, primary, secondary=None, annotated=False, annotate=True,
                                           data_2=youtube_data,
                                           start_1=vimeo_start,
                                           start_2=youtube_start,
-                                          annotate=annotate,
+                                          annotate=False,
                                           line_chart=line_chart)
         line_chart.add(f'Youtube {statistic}', youtube_data, secondary=True)
         if not omit_secondary_vimeo:
@@ -391,7 +406,7 @@ def plot_2youtube(NAME, primary, secondary=None, annotated=False, annotate=True,
     """All the plotting needed if you want to compare two youtube playbacks"""
 
     # sanity check
-    args = ['mb', 'bandwidth', 'quality', 'buffer']
+    args = ['mb', 'bandwidth', 'quality', 'buffer', 'interpolated']
     if primary not in args:
         print(f'Supplied unknown argument {primary}. Expected one of {args}')
         raise NotImplementedError
@@ -416,7 +431,9 @@ def plot_2youtube(NAME, primary, secondary=None, annotated=False, annotate=True,
 
     # generel setup
     line_chart = pygal.XY(legend_at_bottom=True,
-                          x_title='Time (sec)')
+                          x_title='Time (sec)',
+                          dots_size=0,
+                          stroke_style={'width': 3})
 
     # for each option we load the data and generate the legend
     if primary == 'mb':
@@ -430,9 +447,18 @@ def plot_2youtube(NAME, primary, secondary=None, annotated=False, annotate=True,
         line_chart.y_title = 'Bandwidth (Mbit/s)'
         statistic = 'Bandwidth'
         line_chart.range = (0, 5)
+    elif primary == 'interpolated':
+        yt1_data = yt1_har.plot_bandwidth_interpolated()
+        yt2_data = yt2_har.plot_bandwidth_interpolated()
+        line_chart.y_title = 'Bandwidth (Mbit/s)'
+        statistic = 'Bandwidth (interpolated)'
+        line_chart.range = (0, 5)
     elif primary == 'quality':
         yt1_data = meta_to_pyglot(yt1_meta)
         yt2_data = meta_to_pyglot(yt2_meta)
+        #  yt1_data = [data for data in yt1_data if data[0] < 200]  # zoom to values < 200
+        #  yt2_data = [data for data in yt2_data if data[0] < 200]  # zoom to values < 200
+
         line_chart.y_title = 'Resolution (0 is rebuffering)'
         statistic = 'playback quality'
         line_chart.y_labels = [0, 240, 360, 480, 540, 720, 1080]
@@ -453,8 +479,8 @@ def plot_2youtube(NAME, primary, secondary=None, annotated=False, annotate=True,
                                 name_1='Youtube 1',
                                 name_2='Youtube 2')
     # add primary data
-    line_chart.add(f'Youtube 1 ({statistic})', yt1_data)
-    line_chart.add(f'Youtube 2 ({statistic})', yt2_data)
+    line_chart.add(f'Youtube 1', yt1_data)
+    line_chart.add(f'Youtube 2', yt2_data)
 
     # secondary
     # for each option we load the data and generate the legend
@@ -482,10 +508,10 @@ def plot_2youtube(NAME, primary, secondary=None, annotated=False, annotate=True,
                                     data_2=yt2_data,
                                     start_1=yt1_start,
                                     start_2=yt2_start,
-                                    annotate=annotate,
+                                    annotate=False,
                                     line_chart=line_chart)
-        line_chart.add(f'YouTube 1 {statistic}', yt1_data, secondary=True)
-        line_chart.add(f'Youtube 2 {statistic}', yt2_data, secondary=True)
+        line_chart.add(f'YouTube 1', yt1_data, secondary=True)
+        line_chart.add(f'Youtube 2', yt2_data, secondary=True)
 
     # plot everything
     folder = join(OUTPUT_DIR, NAME)
@@ -510,6 +536,61 @@ def get_vimeo_buffer(NAME):
     return [(element['time'], element['buffer']) for element in buffer]
 
 
+def plot(NAME, primary, secondary=None, annotated=False, annotate=True, omit_secondary_vimeo=False):
+    """All the plotting needed. If you have a vimeo and a youtube video, this is the function you want to use
+
+    omit_secondary_vimeo: don't show vimeos buffer. only ussed if primary or secondary arg is 'buffer'
+    """
+
+    # sanity check
+    args = ['mb', 'bandwidth', 'quality', 'buffer', 'interpolated']
+    if primary not in args:
+        print(f'Supplied unknown argument {primary}. Expected one of {args}')
+        raise NotImplementedError
+    if secondary and secondary not in args:
+        print(f'Supplied unknown argument {secondary}. Expected one of {args}')
+        raise NotImplementedError
+
+    youtube_har = YoutubeHar(join(HAR_DIR,  NAME + '_har.json'))
+    youtube_meta = join(HAR_DIR, 'youtube_' + NAME + '_metadata.json')
+
+
+    # generel setup
+    line_chart = pygal.XY(legend_at_bottom=True,
+                          x_title='Time (sec)',
+                          dots_size=0,
+                          stroke_style={'width': 3})
+
+    #line_chart.interpolate = 'cubic'
+
+    if primary in ['bandwidth', 'interpolated'] and secondary == 'buffer':
+        line_chart.secondary_range = (0, 50)
+
+    # primary metric bandwidth
+    youtube_data = youtube_har.plot_bandwidth_interpolated()
+    line_chart.y_title = 'Bandwidth (Mbit/s)'
+    line_chart.range = (0, 5)
+    line_chart.add('YouTube', youtube_data)
+
+    # secondary metric buffer
+    yt1_data = youtube_har.plot_rbuf_time()
+    line_chart.add('YouTube buffer (in Seconds)', yt1_data, secondary=True)
+
+    # plot everything
+    folder = join(OUTPUT_DIR, NAME)
+    if not os.path.exists(folder):
+        os.mkdir(folder)
+
+    if secondary:
+        path = join(folder, f'{primary}_{secondary}')
+    else:
+        path = join(folder, f'{primary}')
+    line_chart.render_to_file(path + '.svg')
+    line_chart.render_to_png(path + '.png', dpi=720)
+    logger.info(f'Created plot at: {path}.png')
+    print(f'Created plot at: {path}.png')
+
+
 
 if __name__ == '__main__':
     # plot_vimeo_quality_vs_time('vimeo_e2')
@@ -530,10 +611,17 @@ if __name__ == '__main__':
     #     plot_combined(NAME, primary='quality')
     #     plot_combined(NAME, primary='quality', secondary='buffer')
 
-    NAME = '2yt_delayed_long'
-    plot_2youtube(NAME, primary='mb')
-    plot_2youtube(NAME, primary='bandwidth')
+    # NAME = 'youtube_first_1'
+    # plot_combined(NAME, primary='mb')
+    #
+    # plot_combined(NAME, primary='interpolated')
+    # plot_combined(NAME, primary='interpolated', secondary='buffer', omit_secondary_vimeo=True)
+    #
+    # plot_combined(NAME, primary='quality')
 
-    NAME = 'youtube_ff_v_chrome_long'
-    plot_2youtube(NAME, primary='mb', name1='youtube_chrome_2yt_delayed_long', name2='youtube_firefox_2yt_delayed_long')
-    plot_2youtube(NAME, primary='quality', name1='youtube_chrome_2yt_delayed_long', name2='youtube_firefox_2yt_delayed_long')
+    # NAME = '2yt_delayed_e3'
+    # plot_2youtube(NAME, primary='interpolated')
+    # plot_2youtube(NAME, primary='mb')
+    # plot_2youtube(NAME, primary='quality')
+
+    plot('youtube_e2', primary='bandwidth', secondary='buffer')
