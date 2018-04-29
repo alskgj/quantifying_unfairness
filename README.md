@@ -36,4 +36,7 @@ yourusername ALL=(ALL) NOPASSWD: ALL
 ```
 or run the whole script as root.
 
-- 
+
+## Documentation
+
+Documentation is available in the docs folder.
